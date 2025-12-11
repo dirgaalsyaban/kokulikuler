@@ -1,0 +1,132 @@
+:root{
+  --gold:#d4af37;
+  --dark:#2b1a12;
+  --wood:#3a2417;
+  --cream:#fff6e8;
+  --text:#4a3524;
+}
+
+body{
+  margin:0;
+  background:#fff2d7;
+  font-family:"Segoe UI", sans-serif;
+}
+
+/* Header */
+header{
+  background:url("img/batik-header.jpg");
+  background-size:cover;
+  padding:50px 20px;
+  text-align:center;
+  color:white;
+  box-shadow:0 4px 20px rgba(0,0,0,0.3);
+}
+header h1{
+  font-size:32px;
+  margin:0;
+  text-shadow:2px 2px 5px black;
+}
+header p{
+  margin:8px 0 0;
+  font-size:16px;
+}
+
+/* Controls */
+.controls{
+  text-align:center;
+  padding:20px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+}
+.controls input, .controls select{
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #d6c0a5;
+}
+
+/* GRID */
+.grid{
+  max-width:1100px;
+  margin:0 auto;
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:var(--wood);
+  border-radius:12px;
+  overflow:hidden;
+  color:white;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  cursor:pointer;
+  transition:transform .2s;
+}
+.card:hover{
+  transform:translateY(-8px);
+}
+.card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+}
+.card-body{
+  padding:12px;
+}
+.card-body h3{
+  margin:5px 0 10px;
+  color:var(--gold);
+}
+
+/* Modal */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+.modal.visible{
+  display:flex;
+}
+.dialog{
+  background:#fff9f0;
+  max-width:800px;
+  border-radius:12px;
+  overflow:hidden;
+  padding:18px;
+}
+.dialog-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.close{
+  border:none;
+  float:right;
+  background:#fff;
+  padding:6px 10px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* Footer */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#3a2417;
+  color:#ffe4c2;
+}
+{
+    "id": 41,
+    "title": "Papeda",
+    "category": "kuliner",
+    "region": "Papua",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Papeda.jpg",
+    "description": "Papeda adalah makanan khas Papua yang terbuat dari sagu, berbentuk seperti bubur lem. Biasanya disantap dengan ikan kuah kuning.",
+    "detail": "Papeda dibuat dari sagu yang dimasak hingga kental dan lengket. Disajikan dengan ikan yang dimasak kuah kuning berbumbu kunyit dan rempah, menjadi makanan pokok masyarakat Papua, terutama di pesisir dan pegunungan."
+},
