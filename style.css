@@ -1,132 +1,611 @@
-:root{
-  --gold:#d4af37;
-  --dark:#2b1a12;
-  --wood:#3a2417;
-  --cream:#fff6e8;
-  --text:#4a3524;
-}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ensiklopedia Budaya Indonesia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #f39c12;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://wallpaperaccess.com/full/118592.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 6rem 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .search-box {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .search-box button:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Categories */
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--primary);
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 4rem;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-icon {
+            background-color: var(--primary);
+            color: white;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+        
+        .category-content {
+            padding: 1.5rem;
+        }
+        
+        .category-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .category-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        /* Cultural Items */
+        .cultural-items {
+            margin-bottom: 4rem;
+        }
+        
+        .items-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .item-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .item-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .item-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .item-card:hover .item-image img {
+            transform: scale(1.05);
+        }
+        
+        .item-content {
+            padding: 1.5rem;
+        }
+        
+        .item-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .item-content p {
+            color: var(--text-light);
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+        }
+        
+        .read-more {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .read-more:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-header {
+            padding: 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h2 {
+            font-size: 1.8rem;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: var(--accent);
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-body h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .modal-body p {
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column p {
+            margin-bottom: 1.2rem;
+            opacity: 0.8;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .items-container, .categories {
+                grid-template-columns: 1fr;
+            }
+              }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-landmark"></i>
+                <h1>Ensiklopedia <span>Budaya</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#categories">Kategori</a></li>
+                    <li><a href="#cultural">Budaya</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-body{
-  margin:0;
-  background:#fff2d7;
-  font-family:"Segoe UI", sans-serif;
-}
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Jelajahi Keindahan Budaya Indonesia</h2>
+            <p><h4>Indonesia memiliki kekayaan budaya yang sangat beragam. Temukan informasi tentang berbagai tradisi, tarian, rumah adat, pakaian tradisional, dan kuliner khas dari seluruh penjuru Nusantara.</h4></p>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Cari budaya, tradisi, atau daerah...">
+                <button id="searchButton"><i class="fas fa-search"></i> Cari</button>
+            </div>
+        </div>
+    </section>
 
-/* Header */
-header{
-  background:url("img/batik-header.jpg");
-  background-size:cover;
-  padding:50px 20px;
-  text-align:center;
-  color:white;
-  box-shadow:0 4px 20px rgba(0,0,0,0.3);
-}
-header h1{
-  font-size:32px;
-  margin:0;
-  text-shadow:2px 2px 5px black;
-}
-header p{
-  margin:8px 0 0;
-  font-size:16px;
-}
+    <!-- Categories Section -->
+    <section class="categories-section" id="categories">
+        <div class="container">
+            <h2 class="section-title">Kategori Budaya</h2>
+            <div class="categories">
+                <div class="category-card" data-category="tarian">
+                    <div class="category-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Tarian Tradisional</h3>
+                        <p>Berbagai tarian adat dari berbagai daerah di Indonesia dengan makna dan keunikan masing-masing.</p>
+                    </div>
+                </div>
+                <div class="category-card" data-category="rumah">
+                    <div class="category-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Rumah Adat</h3>
+                        <p>Arsitektur tradisional Indonesia yang mencerminkan kearifan lokal dan budaya setempat.</p>
+                    </div>
+                </div>
+                <div class="category-card" data-category="pakaian">
+                    <div class="category-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Pakaian Tradisional</h3>
+                        <p>Busana adat yang dikenakan dalam berbagai upacara dan kegiatan adat di seluruh Indonesia.</p>
+                    </div>
+                </div>
+                <div class="category-card" data-category="kuliner">
+                    <div class="category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Kuliner Khas</h3>
+                        <p>Makanan dan minuman tradisional yang menjadi ciri khas daerah-daerah di Indonesia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-/* Controls */
-.controls{
-  text-align:center;
-  padding:20px;
-  display:flex;
-  justify-content:center;
-  gap:12px;
-}
-.controls input, .controls select{
-  padding:10px;
-  border-radius:8px;
-  border:1px solid #d6c0a5;
-}
+    <!-- Cultural Items Section -->
+    <section class="cultural-items" id="cultural">
+        <div class="container">
+            <h2 class="section-title">Ragam Budaya Indonesia</h2>
+            <div class="items-container" id="culturalItems">
+                <!-- Cultural items will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
 
-/* GRID */
-.grid{
-  max-width:1100px;
-  margin:0 auto;
-  padding:20px;
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-  gap:20px;
-}
+    <!-- Modal for Detail View -->
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Judul Budaya</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be loaded by JavaScript -->
+            </div>
+        </div>
+    </div>
 
-.card{
-  background:var(--wood);
-  border-radius:12px;
-  overflow:hidden;
-  color:white;
-  box-shadow:0 8px 20px rgba(0,0,0,0.3);
-  cursor:pointer;
-  transition:transform .2s;
-}
-.card:hover{
-  transform:translateY(-8px);
-}
-.card img{
-  width:100%;
-  height:160px;
-  object-fit:cover;
-}
-.card-body{
-  padding:12px;
-}
-.card-body h3{
-  margin:5px 0 10px;
-  color:var(--gold);
-}
-
-/* Modal */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.6);
-  justify-content:center;
-  align-items:center;
-  padding:20px;
-}
-.modal.visible{
-  display:flex;
-}
-.dialog{
-  background:#fff9f0;
-  max-width:800px;
-  border-radius:12px;
-  overflow:hidden;
-  padding:18px;
-}
-.dialog-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
-.close{
-  border:none;
-  float:right;
-  background:#fff;
-  padding:6px 10px;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-/* Footer */
-footer{
-  text-align:center;
-  padding:20px;
-  background:#3a2417;
-  color:#ffe4c2;
-}
-{
-    "id": 41,
-    "title": "Papeda",
-    "category": "kuliner",
-    "region": "Papua",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Papeda.jpg",
-    "description": "Papeda adalah makanan khas Papua yang terbuat dari sagu, berbentuk seperti bubur lem. Biasanya disantap dengan ikan kuah kuning.",
-    "detail": "Papeda dibuat dari sagu yang dimasak hingga kental dan lengket. Disajikan dengan ikan yang dimasak kuah kuning berbumbu kunyit dan rempah, menjadi makanan pokok masyarakat Papua, terutama di pesisir dan pegunungan."
-},
+    <!-- Footer -->
+    <footer id="about">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Ensiklopedia Budaya</h3>
+                    <p>Platform digital untuk mengenal, mempelajari, dan melestarikan kekayaan budaya Indonesia.</p>
+                    <p>Mari bersama-sama menjaga warisan budaya Nusantara untuk generasi mendatang.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Kontak</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> SMAN 5 Taruna Brawijaya </p>
+                    <p><i class="fas fa-phone"></i> Kelompok 2 XII 5  </p>
+                    <p><i class="fas fa-envelope"></i> Proyek Kokurikuler 2025/2026</p>
+                   
+                </div>
+                <div class="footer-column">
+                    <h3>Navigasi</h3>
+                    <p><a href="#home">Beranda</a></p>
+                    <p><a href="#categories">Kategori Budaya</a></p>
+                    <p><a href="#cultural">Ragam Budaya</a></p>
+                    <p><a href="#about">Tentang Kami</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 kelompok 2 XII 5</p>
+            </div>
+        </div>
+    </footer>

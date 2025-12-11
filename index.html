@@ -22,6 +22,96 @@
             --text: #333;
             --text-light: #7f8c8d;
         }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(244, 156, 18, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(244, 156, 18, 0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes flip {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
         
         body {
             background-color: #f9f9f9;
@@ -76,8 +166,9 @@
             display: flex;
             list-style: none;
             gap: 25px;
+            align-items: center;
         }
-        
+
         nav a {
             color: white;
             text-decoration: none;
@@ -87,8 +178,117 @@
             padding: 5px 0;
             position: relative;
         }
-        
-        nav a:hover {
+
+        /* Dark mode toggle */
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(20deg);
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .modal-content,
+        body.dark-mode .map-container,
+        body.dark-mode .item-card,
+        body.dark-mode .fav-item,
+        body.dark-mode .category-card,
+        body.dark-mode .carousel-slide {
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .item-content h3,
+        body.dark-mode .fav-meta h4,
+        body.dark-mode .modal-body h3 {
+            color: #f39c12;
+        }
+
+        /* Ensure general text becomes light in dark mode */
+        body.dark-mode,
+        body.dark-mode p,
+        body.dark-mode a,
+        body.dark-mode li,
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4,
+        body.dark-mode h5,
+        body.dark-mode h6,
+        body.dark-mode .item-content p,
+        body.dark-mode .fav-meta p,
+        body.dark-mode nav a,
+        body.dark-mode .section-title,
+        body.dark-mode .footer-content,
+        body.dark-mode .footer-column p,
+        body.dark-mode .search-box input,
+        body.dark-mode .search-box input::placeholder {
+            color: #e8e8e8 !important;
+        }
+
+        /* Links and interactive elements should be slightly brighter */
+        body.dark-mode a,
+        body.dark-mode nav a,
+        body.dark-mode .read-more,
+        body.dark-mode .media-link {
+            color: #dcdcdc !important;
+        }
+
+        /* Input backgrounds in dark mode */
+        body.dark-mode .search-box input,
+        body.dark-mode textarea,
+        body.dark-mode select {
+            background-color: #2a2a2a;
+            border-color: #444;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: -50px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(244, 156, 18, 0.4);
+        }
+
+        .back-to-top.show {
+            bottom: 30px;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(244, 156, 18, 0.6);
+        }        nav a:hover {
             color: var(--accent);
         }
         
@@ -172,8 +372,9 @@
             font-size: 2.2rem;
             position: relative;
             padding-bottom: 10px;
+            animation: fadeInDown 0.7s ease-out;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -184,9 +385,8 @@
             left: 50%;
             transform: translateX(-50%);
             border-radius: 2px;
-        }
-        
-        .categories {
+            animation: slideInLeft 0.8s ease-out 0.2s backwards;
+        }        .categories {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 25px;
@@ -200,14 +400,19 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+            animation: fadeInUp 0.6s ease-out backwards;
         }
-        
+
+        .category-card:nth-child(1) { animation-delay: 0.1s; }
+        .category-card:nth-child(2) { animation-delay: 0.2s; }
+        .category-card:nth-child(3) { animation-delay: 0.3s; }
+        .category-card:nth-child(4) { animation-delay: 0.4s; }
+
         .category-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-12px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .category-icon {
+            animation: bounce 0.6s ease-in-out infinite;
+        }        .category-icon {
             background-color: var(--primary);
             color: white;
             height: 80px;
@@ -249,13 +454,19 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
+            animation: slideInLeft 0.5s ease-out backwards;
         }
-        
+
+        .item-card:nth-child(1) { animation-delay: 0.05s; }
+        .item-card:nth-child(2) { animation-delay: 0.1s; }
+        .item-card:nth-child(3) { animation-delay: 0.15s; }
+        .item-card:nth-child(4) { animation-delay: 0.2s; }
+        .item-card:nth-child(5) { animation-delay: 0.25s; }
+        .item-card:nth-child(6) { animation-delay: 0.3s; }
+
         .item-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .item-image {
+            transform: translateY(-8px) scale(1.02);
+        }        .item-image {
             height: 200px;
             overflow: hidden;
         }
@@ -295,14 +506,31 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .read-more::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: left 0.3s;
+        }
+
+        .read-more:hover::before {
+            left: 100%;
+        }
+
         .read-more:hover {
             background-color: #c0392b;
-        }
-        
-        /* Modal */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(231, 76, 60, 0.3);
+        }        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -374,6 +602,74 @@
         .modal-body p {
             margin-bottom: 1.2rem;
             line-height: 1.7;
+        }
+
+        /* Rating stars */
+        .rating {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .star {
+            color: #ddd;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .star:hover,
+        .star.active {
+            color: var(--accent);
+            transform: scale(1.2);
+        }
+
+        /* Share buttons */
+        .share-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            animation: fadeInUp 0.5s ease-out backwards;
+        }
+
+        .share-btn.facebook {
+            background: #3b5998;
+            color: white;
+        }
+
+        .share-btn.whatsapp {
+            background: #25d366;
+            color: white;
+        }
+
+        .share-btn.twitter {
+            background: #1da1f2;
+            color: white;
+        }
+
+        .share-btn.copy {
+            background: #666;
+            color: white;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
         
         /* Footer */
@@ -479,6 +775,333 @@
                 grid-template-columns: 1fr;
             }
               }
+        /* Favorites */
+        .favorites-section {
+            margin: 4rem 0;
+        }
+
+        .favorites-list {
+            display: grid;
+            gap: 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+
+        .fav-item {
+            background: white;
+            border-bottom: 1px solid #eef2f5;
+            padding: 16px 18px;
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 16px;
+            align-items: center;
+            transition: background-color 0.2s, box-shadow 0.2s;
+            animation: fadeInDown 0.5s ease-out backwards;
+        }
+
+        .fav-item:nth-child(1) { animation-delay: 0.05s; }
+        .fav-item:nth-child(2) { animation-delay: 0.1s; }
+        .fav-item:nth-child(3) { animation-delay: 0.15s; }
+        .fav-item:nth-child(4) { animation-delay: 0.2s; }
+        .fav-item:nth-child(5) { animation-delay: 0.25s; }
+
+        .fav-item:hover {
+            background-color: #fafbfc;
+            box-shadow: inset 0 0 0 1px rgba(244, 156, 18, 0.1);
+        }
+
+        .fav-item:last-child {
+            border-bottom: none;
+        }
+
+        .fav-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .fav-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .fav-meta {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .fav-meta h4 {
+            margin: 0;
+            color: var(--primary);
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .fav-meta h4:hover {
+            color: var(--accent);
+        }
+
+        .fav-meta p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.92rem;
+        }
+
+        .fav-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .fav-remove {
+            background: none;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 8px 10px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .fav-remove:hover {
+            background: var(--secondary);
+            color: white;
+            animation: glow 0.6s infinite;
+        }
+
+        .fav-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            font-weight: 700;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        /* Category Carousel */
+        .category-carousel {
+            margin: 2rem 0 3rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+            padding: 12px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.45s ease;
+            gap: 12px;
+        }
+
+        .carousel-slide {
+            min-width: 300px;
+            max-width: 340px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            animation: slideInRight 0.6s ease-out backwards;
+            transition: transform 0.3s;
+        }
+
+        .carousel-slide:hover {
+            transform: scale(1.05) translateY(-4px);
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+        }
+
+        .carousel-slide .slide-content {
+            padding: 10px 12px;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .carousel-btn {
+            pointer-events: all;
+            background: rgba(44,62,80,0.85);
+            color: white;
+            border: none;
+            padding: 8px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 0 6px;
+        }
+
+        .carousel-dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .carousel-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: 0 4px;
+            cursor: pointer;
+        }
+
+        .carousel-dot.active {
+            background: var(--accent);
+        }
+
+        /* Notes Modal */
+        .notes-container {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #f5f9ff;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+        }
+
+        .notes-container label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .notes-container textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.9rem;
+            resize: vertical;
+            min-height: 80px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .notes-container textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.1);
+        }
+
+        .notes-btn-group {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .notes-btn {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .save-note-btn {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        .save-note-btn:hover {
+            background-color: #229954;
+            box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+        }
+
+        .delete-note-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .delete-note-btn:hover {
+            background-color: #c0392b;
+            box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+        }
+
+        .note-display {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            font-size: 0.9rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        /* Sorting */
+        .sort-controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .sort-controls label {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .sort-controls select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: white;
+            color: var(--text);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .sort-controls select:hover {
+            border-color: var(--accent);
+            box-shadow: 0 2px 6px rgba(243, 156, 18, 0.2);
+        }
+
+        /* media players removed */
+
+        body.dark-mode .note-display {
+            background-color: #2a2a2a;
+            border-color: #444;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .notes-container {
+            background-color: #2a2a2a;
+            border-left-color: var(--accent);
+        }
+
+        body.dark-mode .notes-container textarea {
+            background-color: #333;
+            border-color: #444;
+            color: #e0e0e0;
+        }
     </style>
 </head>
 <body>
@@ -495,6 +1118,11 @@
                     <li><a href="#categories">Kategori</a></li>
                     <li><a href="#cultural">Budaya</a></li>
                     <li><a href="#about">Tentang</a></li>
+                    <button class="theme-toggle" title="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+                    <div id="favIndicator" class="fav-indicator" title="Lihat Favorit" style="margin-left:18px; cursor:pointer;">
+                        <i class="fas fa-heart"></i>
+                        <span id="favCount">0</span>
+                    </div>
                 </ul>
             </nav>
         </div>
@@ -508,6 +1136,37 @@
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="Cari budaya, tradisi, atau daerah...">
                 <button id="searchButton"><i class="fas fa-search"></i> Cari</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Favorites Section -->
+    <section class="favorites-section" id="favoritesSection">
+        <div class="container">
+            <h2 class="section-title">Favorit Saya</h2>
+            <div style="display:flex; gap:12px; align-items:center; margin-bottom:12px; flex-wrap:wrap;">
+                <label style="font-weight:600; color:var(--text-light);">Tampilkan:</label>
+                <select id="favViewSelect" style="padding:6px 8px; border-radius:6px; border:1px solid #ddd;">
+                    <option value="all">Semua Favorit</option>
+                    <option value="top">Teratas (Terbaru 5)</option>
+                </select>
+
+                <label style="font-weight:600; color:var(--text-light);">Kategori:</label>
+                <select id="favCategorySelect" style="padding:6px 8px; border-radius:6px; border:1px solid #ddd;">
+                    <option value="all">Semua Kategori</option>
+                </select>
+
+                <label style="font-weight:600; color:var(--text-light);">Urutkan:</label>
+                <select id="favSortSelect" style="padding:6px 8px; border-radius:6px; border:1px solid #ddd;">
+                    <option value="default">Default</option>
+                    <option value="a-z">A - Z</option>
+                    <option value="z-a">Z - A</option>
+                    <option value="newest">Terbaru</option>
+                </select>
+            </div>
+
+            <div class="favorites-list" id="favoritesList">
+                <!-- Favorites will render here -->
             </div>
         </div>
     </section>
@@ -561,6 +1220,15 @@
     <section class="cultural-items" id="cultural">
         <div class="container">
             <h2 class="section-title">Ragam Budaya Indonesia</h2>
+            <!-- Category Carousel (appears when a category is selected) -->
+            <div id="categoryCarousel" class="category-carousel" style="display:none;">
+                <div class="carousel-track" id="carouselTrack"></div>
+                <div class="carousel-controls">
+                    <button id="carouselPrev" class="carousel-btn">‹</button>
+                    <button id="carouselNext" class="carousel-btn">›</button>
+                </div>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
             <div class="items-container" id="culturalItems">
                 <!-- Cultural items will be loaded by JavaScript -->
             </div>
@@ -579,6 +1247,9 @@
             </div>
         </div>
     </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="Kembali ke atas"><i class="fas fa-chevron-up"></i></button>
 
     <!-- Footer -->
     <footer id="about">
@@ -2181,6 +2852,11 @@
     const closeModalBtn = document.getElementById('closeModal');
     const modalTitle = document.getElementById('modalTitle');
     const modalBody = document.getElementById('modalBody');
+    const favoritesList = document.getElementById('favoritesList');
+    const favIndicator = document.getElementById('favIndicator');
+    const favViewSelect = document.getElementById('favViewSelect');
+    const favCategorySelect = document.getElementById('favCategorySelect');
+    const TOP_FAV_COUNT = 5;
 
     // ====== Load Cultural Items ======
     function loadCulturalItems(items = culturalData) {
@@ -2236,16 +2912,117 @@
         const item = culturalData.find(item => item.id === id);
         if (!item) return;
 
+        // Load saved note for this item
+        const savedNotes = JSON.parse(localStorage.getItem('itemNotes')) || {};
+        const itemNote = savedNotes[id] || '';
+
+        // Load saved rating for this item
+        const savedRatings = JSON.parse(localStorage.getItem('itemRatings')) || {};
+        const itemRating = savedRatings[id] || 0;
+
         modalTitle.textContent = item.title;
+
         modalBody.innerHTML = `
             <img src="${item.image}" alt="${item.title}" class="modal-image">
+            <div class="rating" id="modalRating">
+                <span class="star" data-value="1" ${itemRating >= 1 ? 'class="active"' : ''}>★</span>
+                <span class="star" data-value="2" ${itemRating >= 2 ? 'class="active"' : ''}>★</span>
+                <span class="star" data-value="3" ${itemRating >= 3 ? 'class="active"' : ''}>★</span>
+                <span class="star" data-value="4" ${itemRating >= 4 ? 'class="active"' : ''}>★</span>
+                <span class="star" data-value="5" ${itemRating >= 5 ? 'class="active"' : ''}>★</span>
+            </div>
             <p><strong>Daerah Asal:</strong> ${item.region}</p>
             <p><strong>Kategori:</strong> ${getCategoryName(item.category)}</p>
             <h3>Deskripsi</h3>
             <p>${item.detail}</p>
+            <div class="notes-container">
+                <label for="itemNote"><i class="fas fa-sticky-note"></i> Catatan Pribadi</label>
+                <textarea id="itemNote" placeholder="Tambahkan catatan pribadi Anda tentang budaya ini...">${itemNote}</textarea>
+                <div class="notes-btn-group">
+                    <button class="notes-btn save-note-btn" onclick="saveItemNote(${id})"><i class="fas fa-save"></i> Simpan Catatan</button>
+                    <button class="notes-btn delete-note-btn" onclick="deleteItemNote(${id})"><i class="fas fa-trash"></i> Hapus Catatan</button>
+                </div>
+                ${itemNote ? `<div class="note-display"><strong>Catatan tersimpan:</strong><br>${itemNote.replace(/\n/g, '<br>')}</div>` : ''}
+            </div>
+            <div class="share-buttons">
+                <button class="share-btn facebook" title="Bagikan ke Facebook" onclick="shareToFacebook('${item.title}')">f</button>
+                <button class="share-btn whatsapp" title="Bagikan ke WhatsApp" onclick="shareToWhatsApp('${item.title}')"><i class="fab fa-whatsapp"></i></button>
+                <button class="share-btn twitter" title="Bagikan ke Twitter" onclick="shareToTwitter('${item.title}')">𝕏</button>
+                <button class="share-btn copy" title="Salin URL" onclick="copyToClipboard('${item.title}')"><i class="fas fa-copy"></i></button>
+            </div>
         `;
+
+        // Attach rating star events
+        setTimeout(() => {
+            const stars = modalBody.querySelectorAll('.star');
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    const rating = this.dataset.value;
+                    saveItemRating(id, rating);
+                    stars.forEach((s, idx) => {
+                        s.classList.toggle('active', idx < rating);
+                    });
+                });
+            });
+        }, 50);
+
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
+    }
+
+    // ====== Notes Functions ======
+    function saveItemNote(id) {
+        const noteText = document.getElementById('itemNote').value;
+        const savedNotes = JSON.parse(localStorage.getItem('itemNotes')) || {};
+        if (noteText.trim()) {
+            savedNotes[id] = noteText;
+            localStorage.setItem('itemNotes', JSON.stringify(savedNotes));
+            alert('Catatan berhasil disimpan!');
+            showItemDetail(id); // Refresh modal
+        } else {
+            alert('Catatan tidak boleh kosong!');
+        }
+    }
+
+    function deleteItemNote(id) {
+        const savedNotes = JSON.parse(localStorage.getItem('itemNotes')) || {};
+        if (savedNotes[id]) {
+            delete savedNotes[id];
+            localStorage.setItem('itemNotes', JSON.stringify(savedNotes));
+            alert('Catatan berhasil dihapus!');
+            showItemDetail(id); // Refresh modal
+        }
+    }
+
+    // ====== Rating Functions ======
+    function saveItemRating(id, rating) {
+        const savedRatings = JSON.parse(localStorage.getItem('itemRatings')) || {};
+        savedRatings[id] = parseInt(rating);
+        localStorage.setItem('itemRatings', JSON.stringify(savedRatings));
+    }
+
+    // Share functions
+
+    function shareToFacebook(title) {
+        const url = window.location.href;
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(title)}`, '_blank');
+    }
+
+    function shareToWhatsApp(title) {
+        const url = window.location.href;
+        window.open(`https://wa.me/?text=${encodeURIComponent(title + ' - ' + url)}`, '_blank');
+    }
+
+    function shareToTwitter(title) {
+        const url = window.location.href;
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title + ' ' + url)}`, '_blank');
+    }
+
+    function copyToClipboard(title) {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            alert('URL berhasil disalin ke clipboard!');
+        });
     }
 
     // ====== Get Category Name ======
@@ -2269,6 +3046,235 @@
         }
         localStorage.setItem('favorites', JSON.stringify(favorites));
         loadCulturalItems(); // refresh UI
+        renderFavorites();
+        updateFavCount();
+    }
+
+    // ====== Render Favorites List ======
+    function renderFavorites() {
+        if (!favoritesList) return;
+        favoritesList.innerHTML = '';
+
+        // populate category select with unique categories from culturalData
+        if (favCategorySelect && favCategorySelect.options.length <= 1) {
+            const cats = Array.from(new Set(culturalData.map(i => i.category))).sort();
+            cats.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c;
+                opt.textContent = getCategoryName(c);
+                favCategorySelect.appendChild(opt);
+            });
+        }
+
+        const view = favViewSelect ? favViewSelect.value : 'all';
+        const categoryFilter = favCategorySelect ? favCategorySelect.value : 'all';
+        const sortBy = document.getElementById('favSortSelect') ? document.getElementById('favSortSelect').value : 'default';
+
+        if (favorites.length === 0) {
+            favoritesList.innerHTML = `
+                <div style="grid-column:1/-1; text-align:center; padding:1.5rem;">
+                    <p>Belum ada favorit. Tandai budaya sebagai favorit dengan menekan tombol "Favorit".</p>
+                </div>
+            `;
+            return;
+        }
+
+        // prepare list according to view and category
+        let favItems = favorites.map(id => culturalData.find(d => d.id === id)).filter(Boolean);
+
+        if (categoryFilter !== 'all') {
+            favItems = favItems.filter(it => it.category === categoryFilter);
+        }
+
+        if (view === 'top') {
+            // treat 'top' as most recently favorited: show last ones
+            favItems = favItems.slice(-TOP_FAV_COUNT).reverse();
+        }
+
+        // Apply sorting
+        if (sortBy === 'a-z') {
+            favItems.sort((a, b) => a.title.localeCompare(b.title, 'id'));
+        } else if (sortBy === 'z-a') {
+            favItems.sort((a, b) => b.title.localeCompare(a.title, 'id'));
+        } else if (sortBy === 'newest') {
+            // newest = last added = higher ID position in favorites array
+            favItems.sort((a, b) => favorites.indexOf(b.id) - favorites.indexOf(a.id));
+        }
+        // default: keep original order
+
+        if (favItems.length === 0) {
+            favoritesList.innerHTML = `
+                <div style="grid-column:1/-1; text-align:center; padding:1.5rem;">
+                    <p>Tidak ada favorit pada filter yang dipilih.</p>
+                </div>
+            `;
+            return;
+        }
+
+        favItems.forEach((item, idx) => {
+            const favEl = document.createElement('div');
+            favEl.className = 'fav-item';
+            favEl.innerHTML = `
+                <img src="${item.image}" alt="${item.title}">
+                <div class="fav-meta">
+                    <h4>${item.title}</h4>
+                    <p>${item.region} • ${getCategoryName(item.category)}</p>
+                    <p style="color:#f39c12; font-size:0.88rem; margin-top:2px;"><i class="fas fa-heart"></i> Favorit #${idx + 1}</p>
+                </div>
+                <div class="fav-actions">
+                    <button class="fav-remove" data-id="${item.id}" title="Hapus dari Favorit"><i class="fas fa-trash-alt"></i></button>
+                </div>
+            `;
+
+            // click image/title opens modal
+            favEl.querySelector('img').addEventListener('click', () => showItemDetail(item.id));
+            favEl.querySelector('.fav-meta h4').addEventListener('click', () => showItemDetail(item.id));
+
+            favEl.querySelector('.fav-remove').addEventListener('click', function() {
+                toggleFavorite(this.dataset.id);
+            });
+
+            favoritesList.appendChild(favEl);
+        });
+    }
+
+    // ====== Category Carousel ======
+    const categoryCarousel = document.getElementById('categoryCarousel');
+    const carouselTrack = document.getElementById('carouselTrack');
+    const carouselPrev = document.getElementById('carouselPrev');
+    const carouselNext = document.getElementById('carouselNext');
+    const carouselDots = document.getElementById('carouselDots');
+    let carouselIndex = 0;
+    let carouselIntervalId = null;
+
+    function clearCarousel() {
+        if (!categoryCarousel) return;
+        categoryCarousel.style.display = 'none';
+        carouselTrack.innerHTML = '';
+        carouselDots.innerHTML = '';
+        carouselIndex = 0;
+        if (carouselIntervalId) {
+            clearInterval(carouselIntervalId);
+            carouselIntervalId = null;
+        }
+    }
+
+    function renderCategoryCarousel(items = []) {
+        if (!categoryCarousel) return;
+        if (!items || items.length === 0) {
+            clearCarousel();
+            return;
+        }
+
+        // show carousel
+        categoryCarousel.style.display = 'block';
+        carouselTrack.innerHTML = '';
+        carouselDots.innerHTML = '';
+        carouselIndex = 0;
+
+        items.forEach((item, idx) => {
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide';
+            slide.innerHTML = `
+                <img src="${item.image}" alt="${item.title}">
+                <div class="slide-content">
+                    <h4 style="margin:0 0 6px;">${item.title}</h4>
+                    <p style="margin:0; color:var(--text-light); font-size:0.9rem;">${item.region} • ${getCategoryName(item.category)}</p>
+                    <div style="margin-top:8px; display:flex; gap:8px; align-items:center;">
+                        <a href="#" class="read-more" data-id="${item.id}" style="padding:6px 10px; font-size:0.9rem;">Baca</a>
+                        <button class="favorite-btn" data-id="${item.id}" style="background:${favorites.includes(item.id)?'#f39c12':'#ccc'}; border:none; padding:6px 10px; border-radius:6px; cursor:pointer;">
+                            ${favorites.includes(item.id) ? '★' : '☆'}
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            carouselTrack.appendChild(slide);
+
+            // dot
+            const dot = document.createElement('span');
+            dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
+            dot.dataset.index = idx;
+            dot.addEventListener('click', function() {
+                carouselIndex = idx;
+                updateCarouselPosition();
+                resetAutoplay();
+            });
+            carouselDots.appendChild(dot);
+        });
+
+        // attach read-more and favorite events inside carousel
+        carouselTrack.querySelectorAll('.read-more').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const id = parseInt(this.dataset.id);
+                showItemDetail(id);
+            });
+        });
+
+        carouselTrack.querySelectorAll('.favorite-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const id = parseInt(this.dataset.id);
+                toggleFavorite(id);
+                // update button color/label
+                if (favorites.includes(id)) {
+                    this.style.background = '#f39c12';
+                    this.textContent = '★';
+                } else {
+                    this.style.background = '#ccc';
+                    this.textContent = '☆';
+                }
+            });
+        });
+
+        // navigation
+        if (carouselPrev) carouselPrev.onclick = function() { prevSlide(); resetAutoplay(); };
+        if (carouselNext) carouselNext.onclick = function() { nextSlide(); resetAutoplay(); };
+
+        function updateCarouselDots() {
+            const dots = Array.from(carouselDots.children);
+            dots.forEach(d => d.classList.remove('active'));
+            if (dots[carouselIndex]) dots[carouselIndex].classList.add('active');
+        }
+
+        function updateCarouselPosition() {
+            const slides = carouselTrack.querySelectorAll('.carousel-slide');
+            if (!slides || slides.length === 0) return;
+            const slideWidth = slides[0].getBoundingClientRect().width + 12; // include gap
+            const translateX = -(carouselIndex * slideWidth);
+            carouselTrack.style.transform = `translateX(${translateX}px)`;
+            updateCarouselDots();
+        }
+
+        function prevSlide() {
+            const slides = carouselTrack.querySelectorAll('.carousel-slide');
+            if (slides.length === 0) return;
+            carouselIndex = (carouselIndex - 1 + slides.length) % slides.length;
+            updateCarouselPosition();
+        }
+
+        function nextSlide() {
+            const slides = carouselTrack.querySelectorAll('.carousel-slide');
+            if (slides.length === 0) return;
+            carouselIndex = (carouselIndex + 1) % slides.length;
+            updateCarouselPosition();
+        }
+
+        function resetAutoplay() {
+            if (carouselIntervalId) clearInterval(carouselIntervalId);
+            carouselIntervalId = setInterval(() => { nextSlide(); }, 4500);
+        }
+
+        // start autoplay
+        resetAutoplay();
+        // keep slides positioned on resize
+        window.addEventListener('resize', updateCarouselPosition);
+    }
+
+    function updateFavCount() {
+        const countEl = document.getElementById('favCount');
+        if (!countEl) return;
+        countEl.textContent = favorites.length;
     }
 
     // ====== Filter by Category ======
@@ -2280,9 +3286,12 @@
 
             if (category === 'all') {
                 loadCulturalItems();
+                clearCarousel();
             } else {
                 const filteredItems = culturalData.filter(item => item.category === category);
                 loadCulturalItems(filteredItems);
+                // render carousel for this category (show slides)
+                renderCategoryCarousel(filteredItems.slice(0, 20)); // cap to 20 for performance
             }
         });
     });
@@ -2349,9 +3358,118 @@
         });
     });
 
+    // Click favorite indicator to scroll to favorites
+    if (favIndicator) {
+        favIndicator.addEventListener('click', function() {
+            const target = document.getElementById('favoritesSection');
+            if (target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+        });
+    }
+
+    // Favorites controls handlers
+    if (favViewSelect) {
+        favViewSelect.addEventListener('change', function() {
+            renderFavorites();
+        });
+    }
+
+    if (favCategorySelect) {
+        favCategorySelect.addEventListener('change', function() {
+            // when changing category, ensure view is set to 'all' so users can see filtered results
+            renderFavorites();
+        });
+    }
+
+    const favSortSelect = document.getElementById('favSortSelect');
+    if (favSortSelect) {
+        favSortSelect.addEventListener('change', function() {
+            renderFavorites();
+        });
+    }
+
+    // ====== Theme Toggle ======
+    const themeToggle = document.querySelector('.theme-toggle');
+    if (themeToggle) {
+        // Load theme from localStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        });
+    }
+
+    // ====== Back to Top Button ======
+    const backToTopBtn = document.getElementById('backToTop');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // ====== Map Region Click Handler ======
+    function showRegionHighlights(regionName) {
+        const items = culturalData.filter(item => item.region.toLowerCase() === regionName.toLowerCase());
+        
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+
+        if (items.length === 0) {
+            alert('Tidak ada budaya ditemukan untuk daerah: ' + regionName);
+            return;
+        }
+
+        modalTitle.textContent = `Budaya dari ${regionName}`;
+        modalBody.innerHTML = '';
+        items.slice(0, 12).forEach(item => {
+            const itemEl = document.createElement('div');
+            itemEl.style.cssText = 'border:1px solid #ddd; border-radius:8px; padding:10px; cursor:pointer; hover:background:#f5f5f5;';
+            itemEl.innerHTML = `
+                <img src="${item.image}" alt="${item.title}" style="width:100%; height:150px; object-fit:cover; border-radius:6px;">
+                <h4 style="margin:8px 0 4px; font-size:0.95rem;">${item.title}</h4>
+                <p style="margin:0; color:#666; font-size:0.85rem;">${getCategoryName(item.category)}</p>
+            `;
+            itemEl.addEventListener('click', () => showItemDetail(item.id));
+            modalBody.appendChild(itemEl);
+        });
+
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Attach click handlers to map regions
+    const mapRegions = document.querySelectorAll('svg .region, svg .province');
+    mapRegions.forEach(region => {
+        region.style.cursor = 'pointer';
+        region.addEventListener('click', function() {
+            const regionName = this.dataset.region || this.id || this.classList[0];
+            showRegionHighlights(regionName);
+        });
+    });
+
     // ====== Init ======
     document.addEventListener('DOMContentLoaded', function() {
         loadCulturalItems();
+        renderFavorites();
+        updateFavCount();
     });
 </script>
 </html>

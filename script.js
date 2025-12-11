@@ -1,116 +1,1557 @@
-const data = [
-  {id:1,title:"Tari Saman",region:"Aceh",island:"Sumatera",
-   image:"img/tari-saman.jpg",
-   summary:"Tarian cepat serempak dari Aceh.",
-   details:"Tari Saman adalah tarian tradisional dari suku Gayo, Aceh, dilakukan duduk berbaris dengan gerakan serempak."
-  },
-  {id:2,title:"Rumah Gadang",region:"Minangkabau",island:"Sumatera",
-   image:"img/rumah-gadang.jpg",
-   summary:"Rumah adat Minang.",
-   details:"Rumah Gadang memiliki atap gonjong menyerupai tanduk kerbau."
-  },
-  {id:3,title:"Tari Piring",region:"Padang",island:"Sumatera",
-   image:"img/tari-piring.jpg",
-   summary:"Tari dengan piring di tangan.",
-   details:"Tari Piring menampilkan kelincahan dan keseimbangan penari."
-  },
-  {id:4,title:"Wayang Kulit",region:"Jawa",island:"Jawa",
-   image:"img/wayang.jpg",
-   summary:"Teater bayangan tradisional.",
-   details:"Dalang memainkan boneka kulit di belakang layar."
-  },
-  {id:5,title:"Gamelan",region:"Jawa",island:"Jawa",
-   image:"img/gamelan.jpg",
-   summary:"Ansambel musik tradisional.",
-   details:"Gamelan terdiri dari gong, kenong, saron, dll."
-  },
-  {id:6,title:"Tari Kecak",region:"Bali",island:"Bali",
-   image:"img/tari-kecak.jpg",
-   summary:"Tari vokal Bali.",
-   details:"Penari berseru 'cak' sambil membentuk lingkaran."
-  },
-  {id:7,title:"Barong Bali",region:"Bali",island:"Bali",
-   image:"img/barong.jpg",
-   summary:"Tarian barong Bali.",
-   details:"Barong melambangkan kebaikan dalam tradisi Bali."
-  },
-  {id:8,title:"Ulos",region:"Batak",island:"Sumatera",
-   image:"c:\Users\Acer\Downloads\tari cakalele malukuk.jpeg",
-   summary:"Kain tenun Batak.",
-   details:"Ulos dipakai dalam upacara adat sebagai simbol restu."
-  },
-  {id:9,title:"Ondel-Ondel",region:"Jakarta",island:"Jawa",
-   image:"img/ondel.jpg",
-   summary:"Boneka raksasa Betawi.",
-   details:"Ondel-ondel digunakan pada upacara penyambutan."
-  },
-  {id:10,title:"Batik",region:"Jawa",island:"Jawa",
-   image:"img/batik.jpg",
-   summary:"Kain motif lilin.",
-   details:"Batik dibuat menggunakan canting dan malam."
-  }
-];
+const culturalData = [
+            {
+                id: 1,
+                title: "Tari Saman",
+                category: "tarian",
+                region: "Aceh",
+                image: "https://asset.kompas.com/crops/yVgzQBro6t_R1YJZoCZHaqdc0u0=/1x0:800x533/750x500/data/photo/2022/09/07/63184cf52b416.jpg",
+                description: "Tari Saman adalah tarian tradisional asal Aceh yang ditetapkan UNESCO sebagai Warisan Budaya Takbenda Dunia. Tarian ini terkenal dengan gerakan cepat dan harmonis yang dilakukan oleh sekelompok penari.",
+                detail: "Tari Saman berasal dari dataran tinggi Gayo, Aceh. Tarian ini biasanya ditampilkan untuk merayakan peristiwa-peristiwa penting dalam adat masyarakat Gayo. Syair dalam tarian Saman menggunakan bahasa Gayo yang berisi pesan-pesan religius, nasihat, dan sindiran. Keunikan tarian ini terletak pada kekompakan gerakan penari yang dilakukan dengan duduk bersimpuh dan menepuk-nepuk bagian tubuh mereka."
+            },
+            {
+                id: 2,
+                title: "Rumah Gadang",
+                category: "rumah",
+                region: "Sumatera Barat",
+                image: "https://3.bp.blogspot.com/-lVP5yyt8kPw/V42cfBpTcqI/AAAAAAAAALU/NPsgvWOiqkYN8IJqr1c4FDOBuAVmIVnrgCEw/s1600/gadang.JPG",
+                description: "Rumah Gadang adalah rumah adat Minangkabau yang memiliki atap berbentuk seperti tanduk kerbau. Rumah ini mencerminkan sistem kekerabatan matrilineal yang dianut masyarakat Minangkabau.",
+                detail: "Rumah Gadang atau rumah Godang merupakan nama untuk rumah adat Minangkabau yang banyak dijumpai di provinsi Sumatera Barat. Ciri khas rumah ini adalah atapnya yang runcing menyerupai tanduk kerbau, terbuat dari bahan ijuk. Rumah Gadang dibuat berbentuk empat persegi panjang dan dibagi atas lanjar (ruang dari depan ke belakang) dan ruang yang ditandai oleh tiang. Tiang rumah berjumlah ganjil antara 5 sampai 9 baris."
+            },
+            {
+                id: 3,
+                title: "Batik",
+                category: "pakaian",
+                region: "Jawa",
+                image: "https://bergaya.id/wp-content/uploads/2020/03/Batik-Ceplokan.jpg",
+                description: "Batik adalah warisan budaya Indonesia yang diakui UNESCO. Kain batik memiliki motif yang beragam dengan filosofi mendalam dan dibuat dengan teknik canting atau cap.",
+                detail: "Batik adalah kain Indonesia bergambar yang pembuatannya secara khusus dengan menuliskan atau menerakan malam pada kain, kemudian pengolahannya diproses dengan cara tertentu yang memiliki kekhasan. Batik Indonesia telah diakui oleh UNESCO sebagai Warisan Kemanusiaan untuk Budaya Lisan dan Nonbendawi sejak 2 Oktober 2009. Teknik pembuatan batik ada berbagai jenis, mulai dari batik tulis, batik cap, hingga batik printing. Setiap daerah di Indonesia memiliki motif batik khasnya sendiri."
+            },
+            {
+                id: 4,
+                title: "Rendang",
+                category: "kuliner",
+                region: "Sumatera Barat",
+                image: "https://flavorverse.com/wp-content/uploads/2018/09/Malaysian-Food-Rendang-Meat-Dish.jpg",
+                description: "Rendang adalah masakan daging yang dimasak dalam waktu lama dengan santan dan rempah-rempah. Hidangan ini dinobatkan sebagai makanan terlezat di dunia versi CNN International.",
+                detail: "Rendang adalah masakan daging yang berasal dari Minangkabau, Sumatera Barat. Proses memasaknya memakan waktu berjam-jam (biasanya sekitar empat jam) hingga kering dan berwarna hitam pekat. Dalam suhu ruangan, rendang dapat bertahan hingga berminggu-minggu. Rendang yang dimasak dalam waktu yang lebih singkat dan santannya belum mengering disebut kalio. Rendang disajikan dalam berbagai upacara adat dan perhelatan istimewa."
+            },
+            {
+                id: 5,
+                title: "Wayang Kulit",
+                category: "tarian",
+                region: "Jawa",
+                image: "https://folklife.si.edu/Media/Default/Talk%20Story/wayang-kulit-grace-kolin.jpg",
+                description: "Wayang kulit adalah seni tradisional Indonesia yang menggunakan bayangan boneka kulit untuk menceritakan kisah epik Ramayana dan Mahabharata.",
+                detail: "Wayang kulit adalah seni tradisional Indonesia yang terutama berkembang di Jawa. Wayang kulit dimainkan oleh seorang dalang yang juga menjadi narator dialog tokoh-tokoh wayang, dengan diiringi musik gamelan dan tembang yang dinyanyikan oleh para sinden. Dalang memainkan wayang kulit di balik kelir, yaitu layar yang terbuat dari kain putih, sementara di belakangnya disorotkan lampu listrik atau lampu minyak (blencong). Wayang kulit telah diakui oleh UNESCO sebagai Warisan Budaya Takbenda pada tahun 2003."
+            },
+            {
+                id: 6,
+                title: "Rumah Tongkonan",
+                category: "rumah",
+                region: "Sulawesi Selatan",
+                image: "https://www.celebes.co/wp-content/uploads/2019/11/Rumah-Adat-Suku-Toraja.jpg",
+                description: "Rumah Tongkonan adalah rumah adat Toraja dengan atap melengkung seperti perahu. Rumah ini memiliki nilai sosial dan religius yang tinggi bagi masyarakat Toraja.",
+                detail: "Tongkonan adalah rumah adat masyarakat Toraja yang terletak di Sulawesi Selatan. Atapnya melengkung menyerupai perahu, terdiri atas susunan bambu. Tongkonan berasal dari kata tongkon yang artinya duduk bersama-sama. Rumah adat ini dibangun dengan menghadap ke utara, dengan maksud agar penghuni rumah selalu mengingat asal-usul leluhur mereka. Bagian depan rumah dihiasi dengan berbagai ukiran dan tanduk kerbau yang menunjukkan status sosial pemilik rumah."
+            },
+            {
+                id: 7,
+                title: "Tari Kecak",
+                category: "tarian",
+                region: "Bali",
+                image: "https://3.bp.blogspot.com/-QluXnbArwVs/V23xVgAAgHI/AAAAAAAAAB0/lt3WW0qnhLcg0zDdXnp5hhVsGZYQzIgmACLcB/w1200-h630-p-k-no-nu/tari-kecak-bali-nusantara.jpg",
+                description: "Tari Kecak adalah tarian khas Bali yang terkenal dengan suara 'cak' dari puluhan penari laki-laki.",
+                detail: "Tari Kecak diciptakan pada tahun 1930-an dan terinspirasi dari ritual Sanghyang. Para penari membentuk lingkaran sambil meneriakkan 'cak' secara ritmis. Biasanya mengisahkan epos Ramayana, khususnya adegan penyelamatan Dewi Sita oleh Hanoman."
+            },
+{
+    id: 8,
+    title: "Rumah Honai",
+    category: "rumah",
+    region: "Papua",
+    image: "https://pesonapapua.com/wp-content/uploads/2024/04/IMG-20240405-WA0026.jpg",
+    description: "Rumah Honai adalah rumah adat masyarakat Dani di Papua yang berbentuk bulat dengan atap kerucut.",
+    detail: "Honai terbuat dari kayu dan ilalang, dibangun rendah untuk menahan udara dingin pegunungan. Biasanya dipisah antara Honai laki-laki dan Honai perempuan. Rumah ini juga menjadi tempat bermusyawarah penting masyarakat Dani."
+},
+{
+    id: 10,
+    title: "Gudeg",
+    category: "kuliner",
+    region: "Yogyakarta",
+    image: "https://image.idntimes.com/post/20240419/whatsapp-image-2024-04-19-at-083830-b7ef9a70774bcfd978170194baac23ff-8f82a53c273371bb3b39242a6a394e4d.jpeg",
+    description: "Gudeg adalah masakan khas Yogyakarta berbahan nangka muda yang dimasak lama dengan santan.",
+    detail: "Gudeg memiliki rasa manis dan biasa disajikan dengan sambal krecek, ayam, dan telur pindang. Terdapat tiga jenis gudeg: gudeg basah, gudeg kering, dan gudeg manggar yang menggunakan bunga kelapa muda."
+},
+{
+    id: 11,
+    title: "Tari Jaipong",
+    category: "tarian",
+    region: "Jawa Barat",
+    image: "https://asset.kompas.com/crops/BbOmFcMfy4qDYMQslc3pqhvxHuw=/0x0:0x0/780x390/data/photo/buku/63072e6009aaa.jpg",
+    description: "Tari Jaipong adalah tarian energik khas Sunda yang memadukan pencak silat, ketuk tilu, dan ronggeng.",
+    detail: "Tari Jaipong diciptakan oleh Gugum Gumbira pada 1970-an. Gerakannya dinamis, penuh ekspresi, dan diiringi musik gamelan khas Sunda seperti kendang, gong, dan rebab."
+},
+{
+    id: 12,
+    title: "Rumah Joglo",
+    category: "rumah",
+    region: "Jawa Tengah",
+    image: "https://aki.or.id/wp-content/uploads/Rumah-Adat-Joglo.jpg",
+    description: "Rumah Joglo adalah rumah adat Jawa dengan ciri atap tajug bertumpuk yang melambangkan status sosial tinggi.",
+    detail: "Joglo memiliki empat tiang utama disebut 'soko guru'. Rumah ini biasanya dimiliki bangsawan atau kalangan kaya. Fungsinya meliputi pendopo, pringgitan, dan dalem sebagai ruang inti keluarga."
+},
+{
+    id: 13,
+    title: "Sate Lilit",
+    category: "kuliner",
+    region: "Bali",
+    image: "https://www.indonesia.travel/contentassets/f674054b787c4cbfacdaeb9b02afa287/sate-lilit.jpg",
+    description: "Sate Lilit adalah sate khas Bali yang dibuat dari daging cincang dibalut pada batang serai.",
+    detail: "Daging yang biasa digunakan antara lain ayam, ikan, atau babi, dicampur dengan bumbu base genep. Proses melilitkan daging membuat sate lebih aromatik karena harum serai ikut meresap saat dibakar."
+},
+{
+    id: 14,
+    title: "Tari Piring",
+    category: "tarian",
+    region: "Sumatera Barat",
+    image: "https://thumb.viva.id/vivabali/1265x711/2025/09/12/68c389815c72a-ilustrasi-ketangkasan-para-penari-tari-piring-asal-minangkabau_bali.jpg",
+    description: "Tari Piring adalah tarian Minangkabau yang menggunakan piring sebagai properti utama.",
+    detail: "Tari Piring menampilkan kelincahan penari dalam memutar piring tanpa menjatuhkannya. Tarian ini dulunya digunakan untuk ritual syukur panen, namun kini menjadi pertunjukan seni tradisional daerah."
+},
+{
+    id: 15,
+    title: "Ulos",
+    category: "pakaian",
+    region: "Sumatera Utara",
+    image: "https://static.cdntap.com/tap-assets-prod/wp-content/uploads/sites/24/2021/10/sabina.collection.jpg",
+    description: "Ulos adalah kain tradisional suku Batak yang menjadi simbol kehangatan, restu, dan keberkahan.",
+    detail: "Ulos ditenun secara manual menggunakan alat tenun tradisional yang memerlukan waktu berhari-hari hingga berbulan-bulan. Setiap motif ulos memiliki makna khusus, misalnya Ulos Ragidup sebagai simbol kehidupan dan Ulos Mangiring sebagai simbol kesuburan. Kain ini digunakan dalam berbagai upacara adat seperti kelahiran, pernikahan, hingga kematian. Proses pemberian ulos disebut 'mangulosi', yaitu tindakan memberi restu dan doa kepada penerima."
+},
+{
+    id: 16,
+    title: "Nasi Jaha",
+    category: "kuliner",
+    region: "Sulawesi Utara",
+    image: "https://cdn.idntimes.com/content-images/community/2021/02/goarchie-20210206-113848-0-cad2b25a01dc8f98bd8ca892872337a4-e2ba2193358cb01b8958b0ad6cb7506f_600x400.jpg",
+    description: "Nasi Jaha adalah kuliner khas Minahasa berupa beras ketan yang dimasak dalam bambu dengan santan dan rempah.",
+    detail: "Nasi Jaha dimasak menggunakan bambu yang dibakar sehingga menghasilkan aroma asap alami. Bahan utamanya adalah beras ketan yang dicampur santan, jahe, dan daun pandan. Dalam budaya Minahasa, makanan ini disajikan saat upacara adat dan perayaan Natal. Teksturnya gurih, lembut, dan harum asap khas bambu bakar."
+},
+{
+    id: 17,
+    title: "Baju Bodo",
+    category: "pakaian",
+    region: "Sulawesi Selatan",
+    image: "https://www.indonesia.travel/contentassets/495660636a9541ccb15d77adb1ece8ca/baju-bodo.jpg",
+    description: "Baju Bodo adalah pakaian tradisional perempuan Bugis yang berwarna cerah dan memiliki bentuk segi empat.",
+    detail: "Baju Bodo dibuat dari kain tipis seperti muslin dan dipadukan dengan sarung sutra Bugis. Warna pakaian menandakan usia dan status pemakai, misalnya oranye untuk remaja dan merah untuk wanita dewasa. Pada acara adat, Baju Bodo dihiasi perhiasan emas dan manik-manik yang melambangkan keanggunan wanita Bugis. Pakaian ini sudah dipakai sejak abad ke-9 dan tercatat dalam naskah Lontara."
+},
+{
+    id: 18,
+    title: "Pakaian Adat Sasak",
+    category: "pakaian",
+    region: "Nusa Tenggara Barat",
+    image: "https://cdn.antaranews.com/cache/1200x800/2024/07/24/Aruna-Senggigi.jpg",
+    description: "Pakaian adat Sasak terdiri dari lambung untuk perempuan dan sapuk, dodot, serta ikat untuk laki-laki.",
+    detail: "Pakaian ini digunakan dalam pernikahan, festival budaya, dan acara keagamaan masyarakat Lombok. Bahan kain biasanya berasal dari tenun tradisional Lombok yang dibuat dengan alat gedogan. Warna hitam dan merah mendominasi karena melambangkan keberanian dan kehormatan. Aksesori seperti emas kancing dan kain panjang memperindah tampilan pemakainya."
+},
+{
+    id: 19,
+    title: "Pakaian Adat Banjar",
+    category: "pakaian",
+    region: "Kalimantan Selatan",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjb00bCuOdsp0WaqmQbc-4g4FD-q_i9FtNfhWkB07rXgBnCbOrBGV6UbPK&s=10",
+    description: "Pakaian adat Banjar dikenal dengan sebutan 'Baju Bagajah Gamuling' untuk pria dan 'Baju Kurung' untuk wanita.",
+    detail: "Pakaian ini sering digunakan dalam pernikahan dan upacara adat masyarakat Banjar. Baju pria dilengkapi dengan destar, kain halilipan, dan sebilah keris. Wanita memakai baju kurung yang dihiasi manik-manik dan aksesoris emas. Motif kain biasanya terinspirasi dari flora sungai dan budaya maritim. Warna dominan merah dan emas melambangkan kemakmuran dan kejayaan."
+},
+{
+    id: 20,
+    title: "Kue Tetu",
+    category: "kuliner",
+    region: "Nusa Tenggara Barat",
+    image: "https://salsawisata.com/wp-content/uploads/2024/01/Kue-Tetu-e1706506573870.webp",
+    description: "Kue Tetu adalah kue tradisional Lombok yang terbuat dari tepung beras dan santan, dibungkus daun pandan.",
+    detail: "Kue ini memiliki rasa gurih dan manis dengan tekstur lembut. Adonan dituangkan ke dalam cetakan daun lalu dikukus. Tetu sering disajikan saat hari raya, hajatan, dan upacara adat masyarakat Sasak. Aroma pandan dan santannya sangat khas, menjadikannya salah satu kudapan populer dari Lombok."
+},
+{
+    id: 21,
+    title: "Kue Barongko",
+    category: "kuliner",
+    region: "Sulawesi Selatan",
+    image: "https://storage.googleapis.com/bakingworld-web-production/uploads/media/content_banner/banner-barongko-1678097355771.jpg",
+    description: "Barongko adalah makanan tradisional Makassar yang dibuat dari pisang dihaluskan lalu dikukus dengan bungkus daun pisang.",
+    detail: "Kue ini memiliki rasa manis lembut dan aroma harum dari daun pisang. Barongko dahulu menjadi hidangan khusus bangsawan kerajaan Gowa. Adonannya terdiri dari pisang raja, telur, santan, dan gula. Barongko kerap disajikan pada acara adat, pernikahan, dan syukuran keluarga."
+},
+{
+    "id": 22,
+    "title": "Tari Reog Ponorogo",
+    "category": "tarian",
+    "region": "Jawa Timur",
+    "image": "https://1.bp.blogspot.com/-V6-J74gOCBs/V6VapPdhCfI/AAAAAAAAA_A/cUl6q1Zj678wufylpg4l_k9etkceNO6MwCLcB/s1600/Reog_Ponorogo.jpg",
+    "description": "Tari Reog Ponorogo adalah tarian tradisional khas Ponorogo yang menampilkan Barong dan Singa.",
+    "detail": "Tarian ini biasanya dibawakan oleh penari laki-laki yang mengenakan topeng Barong besar, sambil menari diiringi musik gamelan dan drum. Cerita yang diangkat berasal dari legenda lokal mengenai perjuangan Pangeran Kelana Sewandana."
+},
+{
+    "id": 23,
+    "title": "Tari Pendet",
+    "category": "tarian",
+    "region": "Bali",
+    "image": "https://moondoggiesmusic.com/wp-content/uploads/2019/07/Asal-Mula-Tari-Pendet.jpg",
+    "description": "Tari Pendet adalah tarian penyambutan dari Bali yang dilakukan dengan membawa sesaji.",
+    "detail": "Tarian ini dilakukan oleh penari perempuan dengan gerakan lincah dan lembut sambil membawa baki berisi bunga dan sesaji untuk dewa-dewi. Pendet awalnya merupakan tarian ritual sebelum upacara keagamaan."
+},
+{
+    "id": 24,
+    "title": "Tari Cendrawasih",
+    "category": "tarian",
+    "region": "Papua",
+    "image": "https://www.selasar.com/wp-content/uploads/2020/10/tari-cendrawasih-1.jpg",
+    "description": "Tari Cendrawasih menirukan gerakan burung cendrawasih yang indah.",
+    "detail": "Tarian ini menggambarkan keindahan burung Cendrawasih Papua, dengan gerakan yang luwes dan ekspresif. Biasanya dibawakan oleh penari perempuan untuk upacara adat dan hiburan."
+},
+{
+    "id": 25,
+    "title": "Tari Kancet Ledo",
+    "category": "tarian",
+    "region": "Kalimantan Timur",
+    "image": "https://seringjalan.com/wp-content/uploads/2020/04/gong.jpg",
+    "description": "Tari Kancet Ledo adalah tarian tradisional Dayak Kenyah yang menggambarkan kehidupan sehari-hari.",
+    "detail": "Tarian ini mengekspresikan gerakan berburu, menari di pesta adat, dan ritual masyarakat Dayak Kenyah. Biasanya diiringi musik tradisional seperti gong dan gendang."
+},
+{
+    "id": 26,
+    "title": "Tari Topeng Betawi",
+    "category": "tarian",
+    "region": "DKI Jakarta",
+    "image": "https://www.selasar.com/wp-content/uploads/2020/09/perkembangan-tari-topeng-betawi.jpg",
+    "description": "Tari Topeng Betawi adalah tarian tradisional Jakarta menggunakan topeng berwarna-warni.",
+    "detail": "Tarian ini menampilkan kisah sejarah Betawi, kehidupan rakyat, dan sindiran sosial. Gerakannya ceria dan menghibur, sering dibawakan saat perayaan atau festival."
+},
+{
+    "id": 27,
+    "title": "Tari Bedhaya",
+    "category": "tarian",
+    "region": "Jawa Tengah",
+    "image": "https://i.pinimg.com/originals/75/c3/83/75c3831cbd7304aa36b4d42d2ff1df76.jpg",
+    "description": "Tari Bedhaya adalah tarian klasik Keraton Yogyakarta yang sakral dan berjumlah 9 penari.",
+    "detail": "Tari ini memiliki gerakan halus dan simbolis, menggambarkan filosofi kosmologi Jawa. Biasanya dipentaskan dalam upacara kerajaan atau acara sakral keraton."
+},
+{
+    "id": 28,
+    "title": "Tari Guel",
+    "category": "tarian",
+    "region": "Maluku",
+    "image": "https://travelinkmagz.com/wp-content/uploads/2018/09/Tanoh-Gayo_Tari-Guel_1920x1080px_1-1030x579.jpg",
+    "description": "Tari Guel adalah tarian perang dan ritual masyarakat Maluku.",
+    "detail": "Gerakannya energik, biasanya menggunakan alat musik tradisional dan pedang kayu. Tarian ini menandai persiapan perang atau ritual adat tertentu."
+},
+{
+    "id": 29,
+    "title": "Tari Lilin",
+    "category": "tarian",
+    "region": "Sumatera Barat",
+    "image": "https://asset.kompas.com/crops/7U9C1WQtvkAh_HNidUXkTAHo19o=/0x0:0x0/750x500/data/photo/2022/03/07/6225d57930643.jpg",
+    "description": "Tari Lilin adalah tarian Minangkabau yang menggunakan lilin sebagai properti.",
+    "detail": "Tarian ini menampilkan kelincahan penari perempuan dalam menari sambil menyeimbangkan lilin di atas piring. Biasanya dipertunjukkan saat acara adat atau hiburan."
+},
+{
+    "id": 30,
+    "title": "Tari Gandrung",
+    "category": "tarian",
+    "region": "Banyuwangi",
+    "image": "https://akcdn.detik.net.id/visual/2018/10/19/b2803bc8-7319-4d48-8c5d-922a2719eddc_169.jpeg?w=400&q=90",
+    "description": "Tari Gandrung adalah tarian penyambutan khas Banyuwangi yang menggambarkan rasa syukur kepada Dewi Sri.",
+    "detail": "Tarian ini diiringi musik tradisional seperti gendang dan gong. Penari menggunakan kostum warna-warni, gerakannya lembut dan ekspresif untuk menyambut tamu atau merayakan panen."
+},
+{
+    "id": 31,
+    "title": "Tari Sekapur Sirih",
+    "category": "tarian",
+    "region": "Riau",
+    "image": "https://seringjalan.com/wp-content/uploads/2020/02/Sejarah-Tari-Sekapur-Sirih-1.jpg",
+    "description": "Tari Sekapur Sirih adalah tarian penyambutan tradisional Riau yang melambangkan keramahan.",
+    "detail": "Tarian ini dibawakan oleh penari perempuan yang membawa sirih dan bunga sebagai simbol penghormatan. Biasanya dipentaskan di acara adat, pernikahan, atau penyambutan tamu penting."
+},
+{
+    "id": 32,
+    "title": "Rumah Limas",
+    "category": "rumah",
+    "region": "Sumatera Selatan",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ01W7J_p--ntsVDqYkWEc7Ah_y-CMSlkDjIg&usqp=CAU",
+    "description": "Rumah Limas adalah rumah adat Palembang yang berbentuk bertingkat dan atapnya menjulang.",
+    "detail": "Rumah ini memiliki struktur panggung dengan tangga di bagian depan. Tiang penopang disebut 'soko'. Rumah Limas biasanya dihuni oleh keluarga bangsawan atau pejabat, dan digunakan untuk upacara adat serta kegiatan sosial."
+},
+{
+    "id": 33,
+    "title": "Rumah Adat Bale",
+    "category": "rumah",
+    "region": "Bali",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlA6WQLMMjsjX1GshxV-kWCVM07TQ5BD1WVg&usqp=CAU",
+    "description": "Bale adalah rumah adat Bali yang digunakan sebagai tempat tinggal dan upacara adat.",
+    "detail": "Bale terdiri dari beberapa bangunan terbuka yang dibangun menghadap ke pura. Atap terbuat dari ijuk atau genteng. Tiap bale memiliki fungsi berbeda, misalnya Bale Daja untuk keluarga, Bale Dangin untuk sembahyang, dan Bale Dauh untuk tamu."
+},
+{
+    "id": 37,
+    "title": "Rumah Bolon",
+    "category": "rumah",
+    "region": "Sumatera Utara",
+    "image": "https://blkp.co.id/uploads/filemanager/konstruksi%20rumah%20bolon.jpg",
+    "description": "Rumah Bolon adalah rumah adat suku Batak Toba yang besar dan megah.",
+    "detail": "Rumah ini berbentuk panggung, terbuat dari kayu dan anyaman bambu, serta memiliki atap runcing bertingkat. Rumah Bolon biasanya dihuni oleh keluarga kepala adat dan menjadi pusat kegiatan sosial serta upacara adat."
+},
+{
+    "id": 38,
+    "title": "Rumah Adat Sasadu",
+    "category": "rumah",
+    "region": "Nusa Tenggara Timur",
+    "image": "https://pariwisataindonesia.id/wp-content/uploads/2020/11/rumah-adat-Sasadu-foto-by-artisanalbistrocom.jpg",
+    "description": "Rumah Sasadu adalah rumah adat suku Sumba yang terbuat dari kayu dan alang-alang.",
+    "detail": "Rumah ini berbentuk panggung tinggi, dengan atap kerucut besar dan tiang penyangga kayu. Rumah Sasadu digunakan untuk tempat tinggal, menyimpan barang berharga, dan upacara adat Sumba."
+},
+{
+    "id": 40,
+    "title": "Rumah Kolong",
+    "category": "rumah",
+    "region": "Kalimantan Tengah",
+    "image": "https://www.niaga.asia/wp-content/uploads/2023/07/1-lamin.jpeg",
+    "description": "Rumah Kolong adalah rumah panggung suku Dayak yang didirikan di atas tiang tinggi.",
+    "detail": "Rumah ini terbuat dari kayu dan bambu, atapnya biasanya berbentuk pelana. Bagian bawah rumah terbuka untuk hewan ternak atau kegiatan sehari-hari, sedangkan lantai atas digunakan untuk tempat tinggal."
+},
+{
+    "id": 42,
+    "title": "Coto Makassar",
+    "category": "kuliner",
+    "region": "Sulawesi Selatan",
+    "image": "https://indonesiakaya.com/wp-content/uploads/2023/04/cm_Artboard_4.jpg",
+    "description": "Coto Makassar adalah sup daging khas Makassar yang menggunakan rempah khas dan kacang tanah.",
+    "detail": "Sup ini dibuat dari daging sapi dan jeroan yang dimasak dengan rempah-rempah seperti ketumbar, jintan, dan bawang. Disajikan dengan ketupat atau burasa, Coto Makassar menjadi hidangan favorit untuk sarapan atau makan malam."
+},
+{
+    "id": 43,
+    "title": "Lontong Cap Go Meh",
+    "category": "kuliner",
+    "region": "Betawi, Jakarta",
+    "image": "https://kabarjombang.com/wp-content/uploads/2020/11/lontong-cap-go-meh.jpg",
+    "description": "Lontong Cap Go Meh adalah hidangan khas Imlek masyarakat Betawi, berupa lontong dengan lauk pauk beragam.",
+    "detail": "Hidangan ini terdiri dari lontong, opor ayam, sambal goreng, telur pindang, dan sayur lodeh. Biasanya disajikan saat perayaan Cap Go Meh sebagai simbol keberuntungan dan kemakmuran."
+},
+{
+    "id": 44,
+    "title": "Ikan Bakar Manokwari",
+    "category": "kuliner",
+    "region": "Papua Barat",
+    "image": "https://www.unileverfoodsolutions.co.id/dam/ufs-id/marketo/bango/02_IKAN_BAKAR_MANOKWARI.jpg",
+    "description": "Ikan Bakar Manokwari adalah hidangan ikan bakar khas Papua Barat yang diberi bumbu rempah lokal.",
+    "detail": "Ikan segar, biasanya tongkol atau kerapu, dibumbui dengan campuran daun pandan, serai, cabai, dan garam, kemudian dibakar di atas bara api. Aroma asap berpadu dengan rempah membuat cita rasa khas Papua terasa kuat."
+},
+{
+    "id": 45,
+    "title": "Karedok",
+    "category": "kuliner",
+    "region": "Jawa Barat",
+    "image": "https://www.primarasa.co.id/images/images/karedok.jpg",
+    "description": "Karedok adalah salad sayuran mentah khas Sunda yang disiram saus kacang pedas-manis.",
+    "detail": "Karedok menggunakan mentimun, tauge, kol, kacang panjang, daun kemangi, dan terasi. Saus kacang dicampur gula, cabai, dan bawang putih. Hidangan ini segar dan sehat, cocok disantap sebagai pelengkap nasi atau camilan."
+},
+{
+    "id": 46,
+    "title": "Sop Konro",
+    "category": "kuliner",
+    "region": "Sulawesi Selatan",
+    "image": "https://berandasulsel.com/wp-content/uploads/2024/04/Sop-Konro.jpg",
+    "description": "Sop Konro adalah sup iga sapi khas Makassar yang menggunakan rempah-rempah dan kacang hitam.",
+    "detail": "Iga sapi direbus bersama bawang putih, bawang merah, ketumbar, jintan, dan kacang hitam hingga empuk. Sup ini disajikan hangat dengan taburan bawang goreng dan sambal sebagai pelengkap."
+},
+{
+    "id": 47,
+    "title": "Bakso Malang",
+    "category": "kuliner",
+    "region": "Jawa Timur",
+    "image": "https://setapaklangkah.com/wp-content/uploads/2023/04/Bakso-Malang-Legendaris.webp",
+    "description": "Bakso Malang adalah hidangan bakso daging sapi khas Malang dengan aneka lauk seperti tahu, pangsit, dan mie.",
+    "detail": "Bakso dibuat dari daging sapi yang digiling halus dan dicampur tepung. Disajikan dalam kuah kaldu dengan mie, pangsit, tahu, dan terkadang bakwan. Bakso Malang terkenal di seluruh Indonesia karena rasanya yang gurih."
+},
+{
+    "id": 48,
+    "title": "Nasi Liwet Solo",
+    "category": "kuliner",
+    "region": "Jawa Tengah",
+    "image": "https://asset-a.grid.id/crop/0x0:0x0/700x465/photo/2022/06/15/resep-nasi-liwet-solo-sajian-tr-20220615112823.jpg",
+    "description": "Nasi Liwet Solo adalah nasi gurih khas Solo yang dimasak dengan santan dan rempah.",
+    "detail": "Nasi dimasak dengan santan, daun salam, dan serai. Disajikan dengan ayam suwir, telur pindang, sambal goreng, dan sayur labu. Hidangan ini biasanya dinikmati untuk sarapan atau acara tradisional."
+},
+{
+    "id": 49,
+    "title": "Ayam Betutu",
+    "category": "kuliner",
+    "region": "Bali",
+    "image": "https://www.unileverfoodsolutions.com.my/dam/global-ufs/mcos/SEA/calcmenu/recipes/MY-recipes/chicken-&-other-poultry-dishes/balinese-ayam-betutu/main-header.jpg",
+    "description": "Ayam Betutu adalah ayam khas Bali yang dibumbui lengkap dan dibungkus daun pisang lalu dipanggang atau dikukus.",
+    "detail": "Ayam utuh dibumbui dengan base genep Bali, campuran rempah dan daun-daunan. Biasanya dimasak perlahan selama beberapa jam. Hidangan ini sering menjadi sajian untuk upacara adat dan perayaan besar di Bali."
+},
+{
+    "id": 50,
+    "title": "Sop Buntut",
+    "category": "kuliner",
+    "region": "Jakarta",
+    "image": "https://blog.tokowahab.com/wp-content/uploads/2021/08/Resep-Sop-Buntut-yang-Lezat-dan-Tanpa-Presto-Simak-di-Blog.tokowahab.com_.png",
+    "description": "Sop Buntut adalah sup iga ekor sapi yang populer di seluruh Indonesia, disajikan dengan kuah kaldu gurih.",
+    "detail": "Ekor sapi direbus hingga empuk bersama bawang putih, bawang merah, wortel, dan seledri. Disajikan hangat dengan nasi putih. Sop Buntut biasanya menjadi hidangan istimewa untuk keluarga atau restoran khas Indonesia."
+},
+{
+    "id": 52,
+    "title": "Sambal Roa",
+    "category": "kuliner",
+    "region": "Sulawesi Utara",
+    "image": "https://img-global.cpcdn.com/recipes/f0e9e54fbe53d867/1200x630cq70/photo.jpg",
+    "description": "Sambal Roa adalah sambal khas Manado yang terbuat dari ikan roa asap dicampur cabai dan bumbu lain.",
+    "detail": "Ikan roa asap dihaluskan bersama cabai, bawang merah, tomat, dan minyak kelapa. Sambal ini pedas, gurih, dan aromatik, biasanya menjadi pelengkap nasi, bubur, atau ikan bakar."
+},
+{
+    "id": 53,
+    "title": "Ikan Bakar Manado",
+    "category": "kuliner",
+    "region": "Sulawesi Utara",
+    "image": "https://thegorbalsla.com/wp-content/uploads/2019/04/Resep-Ikan-Bakar-Ala-Manado.jpg",
+    "description": "Ikan Bakar Manado adalah hidangan ikan segar dibakar dengan bumbu pedas khas Manado.",
+    "detail": "Ikan segar dilumuri bumbu khas Manado yang terdiri dari bawang, cabai, kemiri, dan serai. Dimasak di atas bara api sehingga aromanya khas dan rasanya pedas gurih."
+},
+{
+    "id": 54,
+    "title": "Paprik Ayam Banjar",
+    "category": "kuliner",
+    "region": "Kalimantan Selatan",
+    "image": "https://cdn.rasa.my/2023/05/Untitled-design-2023-05-15T115353.795.jpg",
+    "description": "Paprik Ayam Banjar adalah masakan ayam berbumbu manis pedas khas Banjar, Kalimantan Selatan.",
+    "detail": "Ayam dipotong kecil dan dimasak dengan saus berbahan bawang, cabai, saus tomat, dan kecap manis. Hidangan ini populer untuk acara keluarga dan perayaan adat."
+},
+{
+    "id": 55,
+    "title": "Keripik Sanjai",
+    "category": "kuliner",
+    "region": "Sumatera Barat",
+    "image": "https://www.apasih.web.id/wp-content/uploads/2018/07/keripik-sanjai-khas-bukittinggi-1148x574.jpg",
+    "description": "Keripik Sanjai adalah keripik singkong pedas manis khas Padang, Sumatera Barat.",
+    "detail": "Singkong digoreng renyah kemudian dilumuri sambal balado pedas dan gula. Cocok sebagai cemilan atau oleh-oleh khas Minangkabau."
+},
+{
+    "id": 56,
+    "title": "Ikan Patin Kuah Tempoyak",
+    "category": "kuliner",
+    "region": "Jambi",
+    "image": "https://images.says.com/uploads/story_source/source_image/845601/5dba.jpg",
+    "description": "Hidangan ikan patin dimasak bersama tempoyak, fermentasi durian khas Jambi dan Sumatera.",
+    "detail": "Ikan patin direbus bersama tempoyak, cabai, bawang, dan daun kemangi. Rasanya asam, gurih, dan unik, menjadi kuliner tradisional masyarakat Jambi."
+},
+{
+    "id": 57,
+    "title": "Pempek",
+    "category": "kuliner",
+    "region": "Sumatera Selatan",
+    "image": "https://vokasi.co.id/wp-content/uploads/2019/07/foto_utama_pempek_2.jpg",
+    "description": "Pempek adalah makanan khas Palembang yang terbuat dari ikan dan tepung sagu, disajikan dengan kuah cuka (cuko).",
+    "detail": "Terdapat berbagai jenis pempek: lenjer, kapal selam, adaan, dan kulit. Kuah cuko terbuat dari gula, cuka, dan cabai yang memberikan rasa manis pedas asam."
+},
+{
+    "id": 58,
+    "title": "Kue Cubit",
+    "category": "kuliner",
+    "region": "DKI Jakarta",
+    "image": "https://asset-a.grid.id/crop/0x0:0x0/700x465/photo/2021/03/26/istock-624460848jpg-20210326043020.jpg",
+    "description": "Kue Cubit adalah jajanan manis khas Jakarta berbentuk kecil dan empuk, biasanya diberi topping meses atau keju.",
+    "detail": "Adonan tepung, telur, dan gula dimasak dalam cetakan kecil. Topping tambahan seperti cokelat, keju, atau meses membuat kue ini digemari anak-anak dan dewasa."
+},
+{
+    "id": 60,
+    "title": "Papeda Tikep",
+    "category": "kuliner",
+    "region": "Maluku",
+    "image": "https://mulamula.id/wp-content/uploads/2024/06/papeda.jpg",
+    "description": "Papeda Tikep adalah papeda khas Maluku yang disajikan dengan ikan kuah kuning pedas.",
+    "detail": "Papeda dibuat dari sagu yang dimasak hingga kental. Disajikan bersama ikan yang dimasak kuah kuning bercampur cabai, bawang, dan rempah lokal, memberikan rasa khas Maluku."
+},
+{
+    "id": 61,
+    "title": "Tari Caci",
+    "category": "tarian",
+    "region": "Nusa Tenggara Timur",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Caci_Dance.jpg/1600px-Caci_Dance.jpg",
+    "description": "Tari Caci adalah tarian perang tradisional masyarakat Manggarai, NTT, menggunakan cambuk dan perisai.",
+    "detail": "Tari ini biasanya ditampilkan pada acara adat atau upacara panen. Penari laki-laki saling beradu cambuk dengan gerakan yang energik dan ritmis, sambil diiringi gong dan drum tradisional."
+},
+{
+    "id": 63,
+    "title": "Tari Likurai",
+    "category": "tarian",
+    "region": "Nusa Tenggara Timur",
+    "image": "https://ultimagz.com/wp-content/uploads/21368-1024x683.jpg",
+    "description": "Tari Likurai adalah tarian perang tradisional suku Timor yang awalnya dilakukan untuk merayakan kemenangan perang.",
+    "detail": "Penari menggunakan pakaian adat dengan perisai dan tombak, menampilkan gerakan lincah sambil melompat dan menabuh alat musik tradisional untuk menyampaikan rasa keberanian dan semangat."
+},
+{
+    "id": 64,
+    "title": "Tari Topeng Cirebon",
+    "category": "tarian",
+    "region": "Jawa Barat",
+    "image": "https://vakansiinfo.com/wp-content/uploads/2023/07/IMG_20230718_065654-jpg.webp",
+    "description": "Tari Topeng Cirebon adalah tarian yang menggunakan topeng sebagai alat ekspresi untuk menceritakan kisah sejarah dan legenda.",
+    "detail": "Tari ini biasanya diiringi gamelan dan mengandung simbolisasi karakter melalui topeng yang berbeda, misalnya topeng Panji, Topeng Rumyang, dan Topeng Kelana."
+},
+{
+    "id": 65,
+    "title": "Tari Tor-Tor",
+    "category": "tarian",
+    "region": "Sumatera Utara",
+    "image": "https://tobaria.com/wp-content/uploads/2022/01/Tor-Tor_Dance-1080x675.jpg",
+    "description": "Tari Tor-Tor adalah tarian adat Batak yang biasa ditampilkan pada acara adat seperti pesta pernikahan dan pemakaman.",
+    "detail": "Tarian ini dilakukan berpasangan dengan gerakan tangan dan kaki yang khas, diiringi musik gondang dan di bawah pimpinan pemimpin tari yang disebut hula-hula."
+},
+{
+    "id": 67,
+    "title": "Tari Sakeco",
+    "category": "tarian",
+    "region": "Maluku",
+    "image": "https://i.ytimg.com/vi/fdYzlARrd4k/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGA8gZShYMA8=&rs=AOn4CLBrEXsAkfkQ8Za7gr_N34ZZYQXP4w",
+    "description": "Tari Sakeco adalah tarian penyambutan tradisional masyarakat Maluku untuk tamu atau perayaan adat.",
+    "detail": "Penari mengenakan pakaian adat berwarna cerah dan melakukan gerakan sederhana namun ritmis, diiringi musik tradisional seperti tifa dan gong."
+},
+{
+    "id": 69,
+    "title": "Tari Gunde",
+    "category": "tarian",
+    "region": "Papua Barat",
+    "image": "https://cdn.rri.co.id/berita/Manado/o/1720605156470-WhatsApp_Image_2024-07-10_at_02.04.42/ybbtd8bg1k6txrf.jpeg",
+    "description": "Tari Gunde adalah tarian adat masyarakat Arfak, Papua Barat, yang dilakukan untuk merayakan panen atau perayaan adat.",
+    "detail": "Penari memakai kostum dari daun dan kulit kayu, serta menabuh alat musik tradisional. Gerakannya meniru perilaku hewan dan alam sekitar, melambangkan rasa syukur."
+},
+{
+    "id": 70,
+    "title": "Tari Lumense",
+    "category": "tarian",
+    "region": "Maluku Utara",
+    "image": "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,f_auto,q_auto:best,w_640/v1634025439/01gamh79vd7wafq6crkjbcpmbg.jpg",
+    "description": "Tari Lumense adalah tarian adat Maluku Utara yang biasanya dilakukan untuk menyambut tamu atau pada pesta rakyat.",
+    "detail": "Penari mengenakan pakaian adat warna-warni dengan gerakan melingkar sambil menabuh tifa. Tari ini menonjolkan keceriaan, keramahtamahan, dan rasa syukur masyarakat Maluku Utara."
+},
+{
+    "id": 71,
+    "title": "Rumah Baileo",
+    "category": "rumah",
+    "region": "Maluku",
+    "image": "https://www.garudacitizen.com/wp-content/uploads/2021/01/Rumah-Adat-Baileo-Nolloth-2-1536x1023.jpg.webp",
+    "description": "Rumah Baileo adalah rumah adat masyarakat Maluku yang digunakan sebagai pusat kegiatan adat dan pertemuan.",
+    "detail": "Rumah Baileo berbentuk panggung dengan atap tinggi dan dekorasi ukiran kayu. Rumah ini berfungsi sebagai tempat pertemuan, upacara adat, dan menyimpan benda-benda sakral."
+},
+{
+    "id": 72,
+    "title": "Rumah Lamin",
+    "category": "rumah",
+    "region": "Kalimantan Timur",
+    "image": "https://media.suara.com/pictures/653x366/2023/08/07/20494-rumah-lamin-ist.webp",
+    "description": "Rumah Lamin adalah rumah panjang khas suku Dayak yang menampung banyak keluarga dalam satu bangunan.",
+    "detail": "Rumah ini biasanya dibangun dari kayu ulin, dengan lantai panggung dan atap dari daun rumbia. Satu rumah Lamin dapat menampung puluhan orang sekaligus, mencerminkan sistem kekerabatan komunitas Dayak."
+},
+{
+    "id": 75,
+    "title": "Rumah Rakit",
+    "category": "rumah",
+    "region": "Kalimantan Selatan",
+    "image": "https://pariwisataindonesia.id/wp-content/uploads/2023/05/Pariwisata-Indonesia-Foto-RUMAH-RAKIT-PALEMBANG.png",
+    "description": "Rumah Rakit adalah rumah adat Banjar yang mengapung di sungai dan digunakan untuk hunian sehari-hari.",
+    "detail": "Rumah ini terbuat dari kayu ringan yang dapat terapung, serta dilengkapi atap dari daun rumbia. Rumah Rakit mencerminkan kehidupan masyarakat Banjar yang dekat dengan sungai."
+},
+{
+    "id": 76,
+    "title": "Rumah Honai Besar",
+    "category": "rumah",
+    "region": "Papua",
+    "image": "https://www.celebes.co/papua/wp-content/uploads/2021/05/Rumah-Wamai.jpg.webp",
+    "description": "Rumah Honai Besar adalah versi rumah adat Dani yang lebih luas, digunakan untuk pertemuan dan upacara adat.",
+    "detail": "Berbentuk bulat dengan atap kerucut tinggi, rumah ini terbuat dari kayu dan ilalang. Honai besar biasanya digunakan oleh kepala suku atau untuk rapat komunitas."
+},
+{
+    "id": 77,
+    "title": "Rumah Bale Saka",
+    "category": "rumah",
+    "region": "Bali",
+    "image": "https://areaindonesia.com/wp-content/uploads/2020/10/bale-meten-bale-daja-300x225.jpg",
+    "description": "Rumah Bale Saka adalah rumah adat Bali yang memiliki tiang-tiang penopang tinggi dan ruang terbuka untuk upacara.",
+    "detail": "Rumah ini digunakan sebagai tempat pertemuan keluarga dan pelaksanaan ritual adat. Struktur bangunannya terbuka, memungkinkan angin dan cahaya masuk dengan leluasa."
+},
+{
+    "id": 81,
+    "title": "Ikan Kuah Asam",
+    "category": "kuliner",
+    "region": "Maluku",
+    "image": "https://asset-a.grid.id/crop/0x0:0x0/x/photo/2021/01/19/2335876607.jpg",
+    "description": "Ikan Kuah Asam adalah masakan khas Maluku yang berkuah asam segar dengan ikan laut.",
+    "detail": "Ikan segar dimasak dengan bumbu seperti asam jawa, cabai, bawang, dan tomat. Hidangan ini biasanya disajikan dengan nasi putih dan mencerminkan rasa segar laut Maluku."
+},
+{
+    "id": 82,
+    "title": "Ketupat Kandangan",
+    "category": "kuliner",
+    "region": "Kalimantan Selatan",
+    "image": "https://cdn.tasteatlas.com/images/dishes/f72cc578adcc4712b58f518db4b3ff90.jpg?mw=1300",
+    "description": "Ketupat Kandangan adalah kuliner khas Banjar berupa ketupat dengan kuah santan dan ikan haruan.",
+    "detail": "Hidangan ini dibuat dengan ikan haruan (sejenis ikan air tawar), santan, daun kunyit, dan rempah-rempah. Biasanya disajikan saat perayaan Idul Fitri atau acara adat."
+},
+{
+    "id": 83,
+    "title": "Se'i Sapi",
+    "category": "kuliner",
+    "region": "Nusa Tenggara Timur",
+    "image": "https://s3.bukalapak.com/bukalapak-kontenz-production/content_attachments/64498/original/sei_sapi_jakarta.jpg",
+    "description": "Se’i Sapi adalah daging sapi asap khas Kupang, NTT, yang diiris tipis dan beraroma khas.",
+    "detail": "Daging sapi diasapi menggunakan kayu khusus sehingga menghasilkan rasa gurih dan aroma asap yang kuat. Disajikan dengan nasi atau lontar jagung."
+},
+{
+    "id": 84,
+    "title": "Papeda",
+    "category": "kuliner",
+    "region": "Papua",
+    "image": "https://4.bp.blogspot.com/-91jzLax7UAg/Vezn4hRozrI/AAAAAAAAP64/DIpU7SIufLk/s1600/papeda%2B8.JPG",
+    "description": "Papeda adalah makanan khas Papua yang terbuat dari sagu, berbentuk lem, dan dimakan dengan ikan kuah kuning.",
+    "detail": "Sagu diaduk hingga menjadi lem kental dan disajikan panas. Biasanya dimakan dengan ikan tongkol atau kakap yang dimasak kuah kuning dengan bumbu kunyit dan rempah lain."
+},
+{
+    "id": 85,
+    "title": "Kaledo",
+    "category": "kuliner",
+    "region": "Sulawesi Tengah",
+    "image": "https://www.finnafood.com/blog/wp-content/uploads/2024/06/kaledo-palu.jpg",
+    "description": "Kaledo adalah sop kaki sapi khas Donggala, Sulawesi Tengah, dengan rasa pedas dan gurih.",
+    "detail": "Kaki sapi dimasak lama dengan rempah seperti cabai, bawang, dan jahe. Disajikan panas dengan nasi putih atau ketupat, sangat populer di acara makan keluarga."
+},
+{
+    "id": 86,
+    "title": "Binte Biluhuta",
+    "category": "kuliner",
+    "region": "Gorontalo",
+    "image": "https://traveldiva.id/wp-content/uploads/2021/09/binte-biluhuta.jpg",
+    "description": "Binte Biluhuta adalah bubur jagung khas Gorontalo yang dicampur ikan segar dan kelapa parut.",
+    "detail": "Bubur jagung dimasak hingga kental, dicampur ikan laut atau sungai, kelapa parut, dan rempah khas Gorontalo. Biasanya disajikan panas sebagai sarapan atau hidangan utama."
+},
+{
+    "id": 87,
+    "title": "Ilabulo",
+    "category": "kuliner",
+    "region": "Maluku Utara",
+    "image": "https://indonesiakaya.com/wp-content/uploads/2025/03/Edited-pictures_illabullo_02-1.jpeg",
+    "description": "Ilabulo adalah masakan khas Tidore dan Ternate berupa ikan bakar dengan bumbu rempah pedas.",
+    "detail": "Ikan segar dibakar dengan campuran cabai, bawang, dan rempah lain hingga meresap. Hidangan ini populer sebagai makanan keluarga dan saat perayaan adat."
+},
+{
+    "id": 88,
+    "title": "Gohu Ikan",
+    "category": "kuliner",
+    "region": "Maluku Utara",
+    "image": "https://www.primarasa.co.id/images/images/Gohu%20Ikan%20-%20Resep.jpg",
+    "description": "Gohu Ikan adalah masakan ikan mentah khas Maluku Utara yang dibumbui jeruk nipis dan rempah segar.",
+    "detail": "Ikan segar diiris tipis, dicampur dengan irisan bawang merah, cabai, dan perasan jeruk nipis. Rasanya segar, asam, dan pedas, mirip sashimi tapi dengan citarasa lokal."
+},
+{
+    "id": 91,
+    "title": "Tari Cakalele",
+    "category": "tarian",
+    "region": "Maluku",
+    "image": "https://www.indonesia.travel/contentassets/8c816e8e9bdb4e48950607dbc365c0e8/cakalele.jpeg",
+    "description": "Tari Cakalele adalah tarian perang tradisional dari Maluku yang menggambarkan keberanian prajurit.",
+    "detail": "Tarian ini dilakukan oleh pria dengan membawa tombak dan perisai, menampilkan gerakan dinamis dan penuh semangat. Tari Cakalele biasanya dipertunjukkan saat penyambutan tamu atau upacara adat."
+},
+{
+    "id": 92,
+    "title": "Tari Maengket",
+    "category": "tarian",
+    "region": "Gorontalo",
+    "image": "https://www.selasar.com/wp-content/uploads/2020/09/Sejarah-Tari-Maengket.jpg",
+    "description": "Tari Maengket adalah tarian rakyat Gorontalo yang digunakan untuk merayakan panen padi.",
+    "detail": "Tarian ini dilakukan oleh sekelompok pria dan wanita yang bergerak berpasangan sambil menabuh alat musik tradisional. Tari Maengket mengekspresikan rasa syukur dan kegembiraan masyarakat."
+},
+{
+    "id": 93,
+    "title": "Tari Hudoq",
+    "category": "tarian",
+    "region": "Kalimantan Timur",
+    "image": "https://turisian.com/wp-content/uploads/2022/07/hudoq.jpg",
+    "description": "Tari Hudoq adalah tarian Dayak yang memakai topeng dan kostum unik untuk ritual panen padi.",
+    "detail": "Penari menggunakan topeng kayu dan kostum dari daun serta serat alam. Tarian ini biasanya dipertunjukkan dalam upacara adat sebagai simbol syukur kepada roh leluhur dan dewa."
+},
+{
+    "id": 94,
+    "title": "Tari Limboto",
+    "category": "tarian",
+    "region": "Gorontalo",
+    "image": "https://cdns.klimg.com/merdeka.com/i/w/news/2020/05/20/1179216/540x270/5-fakta-menarik-tari-tor-tor-seni-tradisional-kebanggaan-orang-sumatera-utara.jpg",
+    "description": "Tari Limboto adalah tarian tradisional Gorontalo yang menceritakan kisah legenda daerah setempat.",
+    "detail": "Tarian ini ditampilkan oleh penari wanita dengan gerakan anggun, diiringi musik tradisional dan nyanyian lokal. Biasanya dipertunjukkan saat festival budaya dan acara resmi."
+},
+{
+    "id": 96,
+    "title": "Tari Pakarena",
+    "category": "tarian",
+    "region": "Sulawesi Selatan",
+    "image": "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2021/09/29221704/Tari-Kipas-Pakarena-2.jpg",
+    "description": "Tari Pakarena adalah tarian tradisional Bugis yang anggun dan dinamis, biasanya dipertunjukkan di istana kerajaan atau upacara penting.",
+    "detail": "Penari mengenakan pakaian adat Baju Bodo dan bergerak perlahan namun penuh ekspresi. Tari ini melambangkan keanggunan dan kehormatan wanita Bugis."
+},
+{
+    "id": 97,
+    "title": "Tari Gantar",
+    "category": "tarian",
+    "region": "Bali",
+    "image": "https://cdn0-production-images-kly.akamaized.net/FxLbbIJyM4pSIHC2wBuHV4xfrKw=/1280x720/smart/filters:quality(75):strip_icc()/kly-media-production/medias/5274195/original/038463500_1751709899-Tari_Gantar.jpg",
+    "description": "Tari Gantar adalah tarian sakral Bali yang biasanya dipertunjukkan saat upacara pura.",
+    "detail": "Tarian ini menggambarkan interaksi antara manusia dengan dewa. Gerakannya lambat dan penuh makna simbolis, diiringi gamelan Bali dan nyanyian tradisional."
+},
+{
+    "id": 98,
+    "title": "Tari Katreji",
+    "category": "tarian",
+    "region": "Banten",
+    "image": "https://infopublik.id/resources/album/seni-budaya/_DSC9669_compressed.JPG",
+    "description": "Tari Katreji adalah tarian tradisional Banten yang menggambarkan keceriaan dan kerukunan masyarakat.",
+    "detail": "Tarian ini dilakukan oleh sekelompok penari wanita dan pria dengan gerakan lincah sambil membawa kipas atau alat musik tradisional. Biasanya dipertunjukkan pada acara pesta rakyat atau festival budaya."
+},
+{
+    "id": 99,
+    "title": "Tari Keong Emas",
+    "category": "tarian",
+    "region": "Jawa Tengah",
+    "image": "https://img.antarafoto.com/cache/400x300/2025/07/20/panggung-ekspresi-hari-anak-nasional-1j9gd-dom.webp",
+    "description": "Tari Keong Emas adalah tarian klasik Jawa yang menceritakan legenda rakyat tentang keajaiban dan kebijaksanaan.",
+    "detail": "Tarian ini biasanya ditampilkan oleh penari wanita dengan kostum warna-warni. Gerakannya lemah gemulai dan diiringi musik gamelan klasik Jawa."
+},
+{
+    "id": 100,
+    "title": "Tari Piring Minahasa",
+    "category": "tarian",
+    "region": "Sulawesi Utara",
+    "image": "https://pdbifiles.nos.jkt-1.neo.id/files/2015/02/10/diyoswirinata_unnamed.png",
+    "description": "Tari Piring Minahasa adalah tarian rakyat Sulawesi Utara yang menggunakan piring sebagai properti.",
+    "detail": "Penari memutar piring di tangan sambil menari lincah dan terkoordinasi. Tarian ini mengekspresikan rasa syukur atas hasil panen dan kemenangan dalam hidup."
+},
+    {
+        id: 100,
+        title: "Rumah Krong Bade",
+        category: "rumah",
+        region: "Aceh",
+        image: "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2021/11/16201233/1535_rumah-adat-aceh-krong-bade-foto-klipingco.jpg",
+        description: "Rumah adat Aceh yang berbentuk panggung, beratap rumbia, dan memiliki tangga di depan.",
+        detail: "Rumah Krong Bade merupakan rumah panggung tradisional Aceh, biasanya digunakan sebagai tempat tinggal dan kegiatan adat."
+    },
+    {
+        id: 101,
+        title: "Rumah Balai Batak Toba",
+        category: "rumah",
+        region: "Sumatera Utara",
+        image: "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2021/12/30193315/Rumah-Adat-Batak-2.jpg",
+        description: "Rumah adat Batak Toba, sebagai alternatif Rumah Bolon.",
+        detail: "Rumah Balai Batak Toba memiliki atap tinggi dan panggung kayu, dihuni oleh satu keluarga besar, dan menjadi pusat kegiatan adat."
+    },
+    {
+        id: 102,
+        title: "Rumah Melayu Selaso Jatuh Kembar",
+        category: "rumah",
+        region: "Riau",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Rumah_Adat_Balai_Selasar_Jatuh_Tunggal%2C_Rumah_Adat_Riau_di_Taman_Mini_Indonesia_Indah.jpg/500px-Rumah_Adat_Balai_Selasar_Jatuh_Tunggal%2C_Rumah_Adat_Riau_di_Taman_Mini_Indonesia_Indah.jpg",
+        description: "Rumah panggung dengan dua selasar yang lantainya lebih rendah (jatuh).",
+        detail: "Rumah Melayu Selaso Jatuh Kembar digunakan sebagai rumah tinggal tradisional Riau, menonjolkan dua selasar yang khas."
+    },
+    {
+        id: 103,
+        title: "Rumah Belah Bubung",
+        category: "rumah",
+        region: "Kepulauan Riau",
+        image: "https://asset.kompas.com/crops/Py8ucNu42U-HW0aQtFgm95Gn9JA=/169x39:870x507/1200x800/data/photo/2021/05/04/609140fe1c291.png",
+        description: "Rumah panggung dengan atap belah tengah/pelana yang ujungnya miring.",
+        detail: "Rumah Belah Bubung merupakan rumah adat panggung Kepulauan Riau, biasanya digunakan untuk kegiatan keluarga dan adat."
+    },
+    {
+        id: 104,
+        title: "Rumah Panggung Kajang Lako",
+        category: "rumah",
+        region: "Jambi",
+        image: "https://akcdn.detik.net.id/community/media/visual/2023/07/13/rumah-adat-kajang-lako_169.jpeg?w=600&q=90",
+        description: "Rumah panggung dengan atap seperti perahu terbalik.",
+        detail: "Rumah Kajang Lako khas Jambi, digunakan sebagai tempat tinggal dan simbol status sosial masyarakat setempat."
+    },
+    {
+        id: 105,
+        title: "Rumah Bubungan Lima",
+        category: "rumah",
+        region: "Bengkulu",
+        image: "https://www.indonesia.travel/contentassets/5240721227e2480b8f4c6ed1f7608311/rumah-bubungan-lima.jpg",
+        description: "Rumah panggung dengan atap berbentuk limas dan memiliki beberapa ruangan khusus.",
+        detail: "Rumah Bubungan Lima menjadi rumah adat keluarga besar di Bengkulu, menandakan hierarki sosial."
+    },
+    {
+        id: 106,
+        title: "Nuwo Sesat",
+        category: "rumah",
+        region: "Lampung",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Rumah_adat_Nuwo_Sesat_lampung.jpg/1280px-Rumah_adat_Nuwo_Sesat_lampung.jpg",
+        description: "Rumah panggung yang berfungsi sebagai balai pertemuan agung.",
+        detail: "Nuwo Sesat digunakan sebagai pusat pertemuan adat Lampung, berbentuk panggung dan dihias ukiran tradisional."
+    },
+    {
+        id: 107,
+        title: "Rumah Adat Sulah Nyanda",
+        category: "rumah",
+        region: "Banten",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Baduy_Village_House.jpg/1280px-Baduy_Village_House.jpg",
+        description: "Rumah panggung suku Baduy, dinding dari bambu dan atap dari ijuk/daun.",
+        detail: "Rumah Sulah Nyanda adalah rumah adat masyarakat Baduy yang menekankan kesederhanaan dan kearifan lokal."
+    },
+    {
+        id: 108,
+        title: "Rumah Bangsal Kencono",
+        category: "rumah",
+        region: "Daerah Istimewa Yogyakarta",
+        image: "https://asset.kompas.com/crops/_hbNeb2CipBuHmPhwGH7VJnB2Pg=/0x0:0x0/750x500/data/photo/2021/01/29/60140fe9a0079.jpg",
+        description: "Rumah adat mirip Joglo, khas Keraton Yogyakarta.",
+        detail: "Bangsal Kencono berfungsi sebagai rumah resmi keraton Yogyakarta, menandakan status sosial dan budaya kerajaan."
+    },
+    {
+        id: 109,
+        title: "Rumah Joglo Situbondo",
+        category: "rumah",
+        region: "Jawa Timur",
+        image: "https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/02/05/3131522867.jpg",
+        description: "Jenis Joglo sederhana, mewakili Rumah Joglo Jawa Timur.",
+        detail: "Rumah Joglo Situbondo atau Panggang Pe memiliki struktur atap khas dan digunakan sebagai rumah tinggal tradisional masyarakat Jawa Timur."
+    },
+    {
+        id: 110,
+        title: "Bale Lokaq",
+        category: "rumah",
+        region: "Nusa Tenggara Barat",
+        image: "https://www.cintaholiday.com/wp-content/uploads/2024/02/Rumah-Bale-foto-by-grid.id_.jpg",
+        description: "Rumah panggung suku Sasak dengan atap melengkung curam.",
+        detail: "Bale Lokaq digunakan sebagai rumah tinggal suku Sasak Lombok, berbentuk panggung dan memiliki arsitektur khas Lombok."
+    },
+    {
+        id: 111,
+        title: "Rumah Adat Panjang",
+        category: "rumah",
+        region: "Kalimantan Barat",
+        image: "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/01/02204311/Rumah-Adat-Kalimantan-Barat-6.jpg",
+        description: "Rumah panggung panjang, dihuni banyak keluarga Dayak.",
+        detail: "Rumah Panjang adalah rumah komunal masyarakat Dayak, menandakan kebersamaan dalam satu atap panjang."
+    },
+    {
+        id: 112,
+        title: "Rumah Baloy",
+        category: "rumah",
+        region: "Kalimantan Utara",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Baloy_Mayo_Adat_Tidung_%282%29.JPG/500px-Baloy_Mayo_Adat_Tidung_%282%29.JPG",
+        description: "Rumah panggung suku Tidung, mirip Rumah Lamin.",
+        detail: "Rumah Baloy berfungsi sebagai rumah tinggal dan tempat kegiatan adat suku Tidung."
+    },
+    {
+        id: 113,
+        title: "Rumah Walewangko",
+        category: "rumah",
+        region: "Sulawesi Utara",
+        image: "https://asset.kompas.com/crops/VXJ29qVnJlTmHE7r8vmA93QUYAw=/0x5:700x356/1200x800/data/photo/2021/01/22/600a755ece87c.jpg",
+        description: "Rumah panggung dari suku Minahasa dengan tiang penopang tinggi.",
+        detail: "Rumah Walewangko digunakan untuk kegiatan keluarga dan adat Minahasa, menonjolkan arsitektur panggung tinggi."
+    },
+    {
+        id: 114,
+        title: "Rumah Buton Malige",
+        category: "rumah",
+        region: "Sulawesi Tenggara",
+        image: "https://events.rumah123.com/wp-content/uploads/sites/41/2024/09/30105521/rumah-adat-buton-3.jpg",
+        description: "Rumah panggung bertingkat dari Kesultanan Buton, atap limas.",
+        detail: "Rumah Buton Malige adalah simbol status kerajaan Buton dan digunakan untuk pertemuan penting."
+    },
+    {
+        id: 115,
+        title: "Rumah Dulohupa",
+        category: "rumah",
+        region: "Gorontalo",
+        image: "https://media.tampang.com/tm_images/article/202406/desain-tanpalkfa10t7m5jqo5t8.jpg",
+        description: "Rumah panggung atap melengkung, tempat musyawarah.",
+        detail: "Rumah Dulohupa digunakan sebagai tempat berkumpul masyarakat Gorontalo untuk musyawarah dan kegiatan adat."
+    },
 
-// ELEMENT
-const grid = document.getElementById("grid");
-const search = document.getElementById("search");
-const filterIsland = document.getElementById("filterIsland");
-
-function render(list){
-  grid.innerHTML = "";
-  list.forEach(item=>{
-    const card = document.createElement("div");
-    card.className="card";
-    card.innerHTML = `
-      <img src="${item.image}">
-      <div class="card-body">
-        <h3>${item.title}</h3>
-        <p>${item.summary}</p>
-      </div>
-    `;
-    card.onclick = ()=>openModal(item);
-    grid.appendChild(card);
-  });
+    {
+        id: 117,
+        title: "Ebe'ai",
+        category: "rumah",
+        region: "Papua Tengah",
+        image: "https://cdn.grid.id/crop/0x0:0x0/700x465/smart/filters:format(webp):quality(100)/photo/2021/09/09/rumah-adatjpg-20210909113955.jpg",
+        description: "Rumah adat Papua untuk perempuan dan anak-anak.",
+        detail: "Ebe'ai adalah rumah tradisional Papua Tengah, biasanya dibangun rendah dan terpisah untuk kaum perempuan dan anak-anak."
+    },
+    {
+        id: 118,
+        title: "Rumah Adat Jew",
+        category: "rumah",
+        region: "Papua Selatan",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Syuru_Ceremonial_House_%2848276841927%29.jpg/960px-Syuru_Ceremonial_House_%2848276841927%29.jpg",
+        description: "Rumah panjang suku Asmat, digunakan untuk upacara.",
+        detail: "Rumah Jew berfungsi sebagai rumah panjang untuk keluarga besar suku Asmat dan tempat upacara adat."
+    },
+    {
+        id: 119,
+        title: "Rumah Kaki Seribu",
+        category: "rumah",
+        region: "Papua Barat",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Rumah_Kaki_Seribu_%28Mod_Aki_Aksa%29.jpg/960px-Rumah_Kaki_Seribu_%28Mod_Aki_Aksa%29.jpg",
+        description: "Rumah panggung dengan banyak tiang penopang.",
+        detail: "Rumah Kaki Seribu adalah rumah adat Papua Barat yang ditopang banyak tiang untuk kekuatan struktur dan simbol sosial."
+    },
+    {
+        id: 120,
+        title: "Rumah Mod Aki Aksa",
+        category: "rumah",
+        region: "Papua Barat Daya",
+        image: "https://www.indonesia.travel/contentassets/9ac3fb24cfe14a58a6d284c452dd548e/mod-aki-aksi.jpg",
+        description: "Rumah adat suku Moi, atap melengkung rendah.",
+        detail: "Rumah Mod Aki Aksa digunakan sebagai tempat tinggal dan kegiatan adat masyarakat Moi."
+    },
+    {
+        id: 121,
+        title: "Rumah Adat Boyang",
+        category: "rumah",
+        region: "Sulawesi Barat",
+        image: "https://media.tampang.com/tm_images/article/202406/desain-tanpaubwdskb2jxroul92.jpg",
+        description: "Rumah panggung suku Mandar dengan atap bertingkat.",
+        detail: "Rumah Adat Boyang digunakan sebagai rumah tinggal dan tempat kegiatan sosial masyarakat Mandar."
+    }, 
+    {
+    id: 121,
+    title: "Tari Gending Sriwijaya",
+    category: "tarian",
+    region: "Sumatera Selatan",
+    image: "https://asset.kompas.com/crops/REOXTT8FjKOzbansLwGx2AGm6zQ=/0x0:855x570/1200x800/data/photo/2017/08/22/529604900.jpg",
+    description: "Tarian penyambutan untuk tamu kehormatan, melambangkan kebesaran Kerajaan Sriwijaya.",
+    detail: "Tari Gending Sriwijaya biasanya ditampilkan dalam acara resmi dan upacara adat. Gerakan tarian lemah gemulai dengan busana adat khas Palembang."
+},
+{
+    id: 122,
+    title: "Tari Bidadari Teminang Anak",
+    category: "tarian",
+    region: "Bengkulu",
+    image: "https://asset.kompas.com/crops/gE17-R1ynFCmyAhx0YNseGdCpUI=/116x0:893x518/1200x800/data/photo/2021/04/30/608baa9936f63.png",
+    description: "Tarian rakyat yang mengisahkan bidadari turun dari kayangan untuk menimang anak.",
+    detail: "Tari ini biasanya ditampilkan pada acara pesta rakyat atau peringatan adat. Penari mengenakan kostum bidadari lengkap dengan properti sayap dan kain panjang."
+},
+{
+    id: 123,
+    title: "Tari Selampit Delapan",
+    category: "tarian",
+    region: "Jambi",
+    image: "https://seringjalan.com/wp-content/uploads/2020/04/02-tari-selampit-delapan.png",
+    description: "Tarian pergaulan yang menggunakan properti tali/selampit, ditarikan berpasangan.",
+    detail: "Tari Selampit Delapan biasanya ditampilkan dalam pergaulan masyarakat Jambi, gerakan penari mengikuti irama musik tradisional menggunakan selampit."
+},
+{
+    id: 124,
+    title: "Tari Sembah Sigeh Pengunten",
+    category: "tarian",
+    region: "Lampung",
+    image: "https://indonesiakaya.com/wp-content/uploads/2020/10/Tari_Sigeh_Pengunten_1200.jpg",
+    description: "Tarian penyambutan untuk menghormati tamu, penari membawa wadah berisi sirih.",
+    detail: "Tari ini menonjolkan gerakan tangan dan tubuh yang anggun untuk menyampaikan rasa hormat dan sambutan kepada tamu."
+},
+{
+    id: 125,
+    title: "Tari Zapin",
+    category: "tarian",
+    region: "Riau",
+    image: "https://travellingindonesia.com/wp-content/uploads/2023/08/Tari-Zapin-1.jpeg",
+    description: "Tarian pergaulan Melayu yang dipengaruhi budaya Arab, gerakannya cepat dan dinamis.",
+    detail: "Zapin biasanya ditarikan oleh pria dan wanita secara berpasangan dengan iringan musik gambus."
+},
+{
+    id: 126,
+    title: "Tari Joget Dangkong",
+    category: "tarian",
+    region: "Kepulauan Riau",
+    image: "https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/p2/242/2025/08/11/Tarian-dangkong-asal-karimun-menjadi-warisan-budaya-nasional-fDISDIKBUD-KARIMUN_2-3222137514.jpeg",
+    description: "Tarian pergaulan yang lincah dengan irama Melayu, sering ditampilkan saat pesta rakyat.",
+    detail: "Tari Joget Dangkong menampilkan gerakan cepat dan energik, biasanya dilakukan berkelompok."
+},
+{
+    id: 127,
+    title: "Tari Rampak Bedug",
+    category: "tarian",
+    region: "Banten",
+    image: "https://indonesia.go.id/assets/upload/headline/1571029828_Rampak_Bedug_thumb.jpg",
+    description: "Tarian yang menggunakan alat musik bedug secara kolosal, mencerminkan semangat kebersamaan.",
+    detail: "Tari Rampak Bedug dilakukan secara berkelompok dengan iringan bedug besar, gerakan ritmis dan kompak."
+},
+{
+    id: 128,
+    title: "Tari Serimpi",
+    category: "tarian",
+    region: "Daerah Istimewa Yogyakarta",
+    image: "https://radarmukomuko.bacakoran.co/upload/ad92437c704e23cab3d2d967d837b537.jpg",
+    description: "Tarian klasik keraton yang sangat halus dan sakral, biasanya ditarikan empat penari wanita.",
+    detail: "Serimpi merupakan tari sakral yang menekankan gerakan halus dan penuh makna filosofis, biasanya dipentaskan di istana."
+},
+{
+    id: 129,
+    title: "Tari Lenggo",
+    category: "tarian",
+    region: "Nusa Tenggara Barat",
+    image: "https://images.genpi.co/resize/1280x860-100/uploads/ntb/arsip/normal/2022/01/16/tari-lenggo-foto-seringjalancom-3xgd.webp",
+    description: "Tarian kerajaan dari Bima, sering ditampilkan untuk menyambut tamu kehormatan.",
+    detail: "Tari Lenggo memiliki gerakan lemah gemulai, kostum berwarna cerah, dan biasanya diiringi musik tradisional Bima."
+},
+{
+    id: 130,
+    title: "Tari Pakarena",
+    category: "tarian",
+    region: "Sulawesi Selatan",
+    image: "https://asset.kompas.com/crops/--h_QiGLXZ3g5Sg0WXkbRSqTIns=/0x0:961x641/750x500/data/photo/2021/09/27/6151ee3e6c5a1.png",
+    description: "Tarian lembut dan anggun dari Gowa, penari menggunakan kipas sebagai properti utama.",
+    detail: "Tari Pakarena ditampilkan untuk acara pernikahan atau penyambutan tamu, menekankan gerakan anggun dan ekspresi wajah lembut."
+},
+{
+    id: 131,
+    title: "Tari Modero",
+    category: "tarian",
+    region: "Sulawesi Tengah",
+    image: "https://cdn.antaranews.com/cache/1200x800/2024/11/14/Festival-tari-daerah-se-Sulteng-131124-bmz-5.jpg",
+    description: "Tarian suka cita saat panen atau upacara adat, ditarikan secara massal melingkar.",
+    detail: "Modero menampilkan gerakan melingkar, langkah-langkah ringan, dan sering ditarikan oleh banyak orang."
+},
+{
+    id: 132,
+    title: "Tari Lariangi",
+    category: "tarian",
+    region: "Sulawesi Tenggara",
+    image: "https://pict.sindonews.net/dyn/1280/salsabila/photo/2022/12/13/1/38511/tari-lariangi-meriahkan-peringatan-hari-nusantara-2022-di-wakatobi-exz.jpg",
+    description: "Tarian pergaulan yang bertema percintaan dari Kepulauan Wakatobi.",
+    detail: "Tari Lariangi menekankan gerakan lincah, ekspresi cinta, dan sering ditampilkan berpasangan."
+},
+{
+    id: 133,
+    title: "Tari Kabasaran",
+    category: "tarian",
+    region: "Sulawesi Utara",
+    image: "https://etnis.id/content/images/2019/08/DSC02995.JPG",
+    description: "Tarian perang tradisional Minahasa yang energik dan keras, ditarikan oleh pria berpakaian merah.",
+    detail: "Kabasaran menggambarkan semangat peperangan, dengan penari membawa tombak dan perisai."
+},
+{
+    id: 134,
+    title: "Tari Dana-Dana",
+    category: "tarian",
+    region: "Gorontalo",
+    image: "https://3.bp.blogspot.com/-_LGXjDVADow/VOwvaL4YjVI/AAAAAAAAAAw/dsnNub2vL1E/s1600/Tari%2Bdana-dana%2Bmerupakan%2Btari%2Bpergaulan%2Bremaja%2Bgorontalo.jpg",
+    description: "Tarian pergaulan yang bernuansa Islam, gerakannya diiringi alat musik rebana.",
+    detail: "Tari Dana-Dana sering dipentaskan pada acara keagamaan atau festival budaya, menekankan gerakan lincah dan ritmis."
+},
+{
+    id: 135,
+    title: "Tari Monong",
+    category: "tarian",
+    region: "Kalimantan Barat",
+    image: "https://genemil.com/wp-content/uploads/2022/09/Tari-Monong.jpg",
+    description: "Tarian penyembuhan yang dilakukan untuk memohon kesembuhan dari penyakit.",
+    detail: "Tari Monong biasanya dipimpin seorang dukun atau tetua adat, gerakannya berfokus pada ritual penyembuhan."
+},
+{
+    id: 136,
+    title: "Tari Baksa Kembang",
+    category: "tarian",
+    region: "Kalimantan Selatan",
+    image: "https://i.ytimg.com/vi/ybK43LXtAwE/maxresdefault.jpg",
+    description: "Tarian penyambutan yang ditarikan oleh penari wanita, membawa rangkaian bunga.",
+    detail: "Tari Baksa Kembang sering ditampilkan saat penyambutan tamu penting atau upacara adat."
+},
+{
+    id: 137,
+    title: "Tari Jepen",
+    category: "tarian",
+    region: "Kalimantan Utara",
+    image: "https://helloindonesia.id/wp-content/uploads/2021/03/tari-kutai.jpg",
+    description: "Tarian pergaulan dari suku Tidung, gerakannya dipengaruhi budaya Melayu.",
+    detail: "Tari Jepen ditampilkan dalam festival atau acara sosial, menonjolkan gerakan tangan dan kaki yang lincah."
+},
+{
+    id: 139,
+    title: "Tari Lala",
+    category: "tarian",
+    region: "Maluku Utara",
+    image: "https://i.ytimg.com/vi/n-oELykX6is/maxresdefault.jpg",
+    description: "Tarian rakyat yang biasa ditampilkan saat upacara adat atau pesta rakyat.",
+    detail: "Tari Lala ditampilkan dengan gerakan ceria, berpasangan atau berkelompok, menonjolkan ritme musik tradisional."
+},
+{
+    id: 140,
+    title: "Tari Yospan",
+    category: "tarian",
+    region: "Papua Tengah",
+    image: "https://indonesiakaya.com/wp-content/uploads/2020/10/Tarian_yospan_adalah_penggabungan_dua_tarian_dari_rakyat_Papua_yakni_tari_yosim_dan_tari_pancar_2-1.jpg",
+    description: "Tarian pergaulan modern yang gerakannya lincah, gabungan dari Yosim dan Pancar.",
+    detail: "Tari Yospan ditampilkan secara berpasangan atau kelompok, menekankan gerakan kaki dan tangan yang cepat."
+},
+{
+    id: 141,
+    title: "Tari Aluyen",
+    category: "tarian",
+    region: "Papua Pegunungan",
+    image: "https://thumb.viva.id/vivabali/375x211/2025/09/13/68c57dffb50a1-ilustrasi-penari-tradisional-membawakan-tarian-penuh-energi_bali.jpg",
+    description: "Tarian untuk menyambut kedatangan pahlawan atau untuk merayakan keberhasilan perang.",
+    detail: "Tari Aluyen ditarikan oleh pria bersenjata atau dengan atribut adat, menekankan gerakan heroik dan simbol keberanian."
+},
+{
+    id: 142,
+    title: "Tari Tumbu Tanah",
+    category: "tarian",
+    region: "Papua Selatan",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Tari_Tumbu_Tanah_%281%29.jpg/960px-Tari_Tumbu_Tanah_%281%29.jpg",
+    description: "Tarian yang dilakukan dengan menghentakkan kaki ke tanah, sering terkait upacara pembangunan rumah.",
+    detail: "Gerakan tari ini menekankan hentakan kaki yang ritmis, biasanya ditampilkan oleh pria dan wanita secara bersamaan."
+},
+{
+    id: 143,
+    title: "Tari Wor",
+    category: "tarian",
+    region: "Papua Barat Daya",
+    image: "https://indonesia.go.id/assets/upload/headline/1566897869_Parade_Wor_dan_Yospan_(2)_thumb.jpeg",
+    description: "Tarian adat dari Biak, sering dilakukan sebagai bagian dari upacara pernikahan atau kematian.",
+    detail: "Tari Wor menampilkan gerakan ritual dan simbolis, diiringi musik tradisional Biak dan diikuti komunitas setempat."
+},
+{
+    id: 144,
+    title: "Tari Patuddu",
+    category: "tarian",
+    region: "Sulawesi Barat",
+    image: "https://hypeabis.id/assets/photo/20221110000305000000TARIPATTUDU.jpg",
+    description: "Tarian penyambutan yang menggambarkan keberanian dan kegagahan wanita Mandar.",
+    detail: "Tari Patuddu menonjolkan gerakan tangkas dan ekspresi kuat dari penari wanita, biasanya ditampilkan pada acara adat."
+},{
+    id: 145,
+    title: "Ulee Balang",
+    category: "pakaian",
+    region: "Aceh",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Ulee_Balang_Aceh.jpg",
+    description: "Pakaian kebesaran Raja/Sultan Aceh; ditandai dengan Meukeutop (kopiah) bagi pria dan Daro Baro bagi wanita.",
+    detail: "Ulee Balang digunakan pada acara resmi kerajaan Aceh dan perayaan adat, menampilkan hiasan kepala khas dan busana mewah."
+},
+{
+    id: 146,
+    title: "Bundo Kanduang",
+    category: "pakaian",
+    region: "Sumatera Barat",
+    image: "https://upload.wikimedia.org/wikipedia/commons/1/17/Bundo_Kanduang_Minangkabau.jpg",
+    description: "Pakaian adat wanita Minangkabau yang melambangkan kebesaran seorang ibu, dengan hiasan kepala Tingkuluak (Tengkuluk).",
+    detail: "Bundo Kanduang digunakan dalam upacara adat dan pernikahan, menunjukkan status sosial dan kehormatan perempuan Minangkabau."
+},
+{
+    id: 147,
+    title: "Teluk Belanga dan Kebaya Labuh",
+    category: "pakaian",
+    region: "Riau",
+    image: "https://upload.wikimedia.org/wikipedia/commons/3/32/Teluk_Belanga_Riau.jpg",
+    description: "Pakaian Melayu Riau; Teluk Belanga (pria) berupa kemeja berkerah tanpa saku, Kebaya Labuh (wanita) berupa kebaya panjang.",
+    detail: "Digunakan dalam acara resmi dan perayaan adat, menonjolkan keanggunan Melayu Riau."
+},
+{
+    id: 148,
+    title: "Baju Kurung dan Cekak Musang",
+    category: "pakaian",
+    region: "Kepulauan Riau",
+    image: "https://upload.wikimedia.org/wikipedia/commons/8/85/Baju_Kurung_Cekak_Musang_Riau.jpg",
+    description: "Pakaian khas Kepulauan Riau, sering dilengkapi dengan Tanjak (penutup kepala) untuk pria dan Selendang untuk wanita.",
+    detail: "Sering dipakai dalam pesta rakyat atau upacara resmi, menonjolkan ciri khas Melayu Kepulauan Riau."
+},
+{
+    id: 149,
+    title: "Pakaian Adat Melayu Jambi",
+    category: "pakaian",
+    region: "Jambi",
+    image: "https://upload.wikimedia.org/wikipedia/commons/4/45/Pakaian_Adat_Melayu_Jambi.jpg",
+    description: "Pakaian dari beludru merah yang dihiasi sulaman benang emas, dilengkapi dengan Mahkota yang mewah.",
+    detail: "Biasanya dipakai dalam acara kerajaan, pernikahan adat, dan festival kebudayaan Jambi."
+},
+{
+    id: 150,
+    title: "Aesan Gede / Aesan Paksangko",
+    category: "pakaian",
+    region: "Sumatera Selatan",
+    image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/Aesan_Gede_Sumatera_Selatan.jpg",
+    description: "Pakaian kebesaran Kerajaan Sriwijaya, didominasi warna merah dan emas dengan aksesoris yang rumit.",
+    detail: "Aesan Gede dipakai untuk acara kerajaan dan upacara adat besar, melambangkan kebesaran dan kemewahan."
+},
+{
+    id: 151,
+    title: "Pakaian Adat Rejang Lebong",
+    category: "pakaian",
+    region: "Bengkulu",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/61/Pakaian_Adat_Rejang_Lebong.jpg",
+    description: "Menggunakan kain beludru dengan sulaman emas; pria memakai Kopiah Emas dan wanita memakai Mahkota.",
+    detail: "Digunakan dalam perayaan adat, pesta rakyat, dan upacara pernikahan di Bengkulu."
+},
+{
+    id: 152,
+    title: "Tulang Bawang",
+    category: "pakaian",
+    region: "Lampung",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/20/Pakaian_Adat_Lampung_Tulang_Bawang.jpg",
+    description: "Menggunakan kain tapis (tenun khas Lampung) yang bersulam emas, dilengkapi Siger (mahkota) untuk wanita.",
+    detail: "Sering dipakai dalam pernikahan adat dan acara resmi Lampung, menonjolkan keindahan motif tapis."
+},
+{
+    id: 153,
+    title: "Dandanan Care Haji / Abang None",
+    category: "pakaian",
+    region: "DKI Jakarta",
+    image: "https://upload.wikimedia.org/wikipedia/commons/4/42/Dandanan_Care_Haji_Abang_None.jpg",
+    description: "Pakaian khas Betawi; pria memakai Baju Sadariah, wanita memakai Baju Kurung dan Kerudung.",
+    detail: "Digunakan dalam festival budaya Betawi, seperti Festival Ondel-Ondel dan upacara adat."
+},
+{
+    id: 154,
+    title: "Pakaian Adat Sunda (Kebaya Sunda)",
+    category: "pakaian",
+    region: "Jawa Barat",
+    image: "https://upload.wikimedia.org/wikipedia/commons/1/11/Kebaya_Sunda.jpg",
+    description: "Pakaian adat yang sederhana namun elegan; Pria memakai Jas Tutup/Beskap dan wanita memakai Kebaya dengan Sanggul.",
+    detail: "Dipakai dalam acara adat, pernikahan, dan upacara resmi, menekankan kesederhanaan dan keanggunan Sunda."
+},
+{
+    id: 155,
+    title: "Jawi Jangkep dan Kebaya Jawa",
+    category: "pakaian",
+    region: "Jawa Tengah",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/56/Jawi_Jangkep_dan_Kebaya_Jawa.jpg",
+    description: "Jawi Jangkep (pria) terdiri dari Beskap dan Jarikan (kain batik), wanita memakai Kebaya dan Sanggul.",
+    detail: "Biasanya dipakai pada acara kerajaan, pernikahan adat, dan festival kebudayaan Jawa Tengah."
+},
+{
+    id: 156,
+    title: "Surjan dan Kebaya Khas Jogja",
+    category: "pakaian",
+    region: "DI Yogyakarta",
+    image: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Surjan_dan_Kebaya_Jogja.jpg",
+    description: "Pria memakai Surjan (lurik berkerah tegak) dan Blangkon, wanita memakai Kebaya Tangkepan.",
+    detail: "Digunakan dalam upacara adat, pernikahan keraton, dan festival budaya Yogyakarta."
+},
+{
+    id: 157,
+    title: "Pesa'an",
+    category: "pakaian",
+    region: "Jawa Timur",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/65/Pesa'an_Madura.jpg",
+    description: "Pakaian adat Madura; Baju hitam longgar (Pesa'an) dengan Kaos Garis Merah/Putih dan Sarung yang diikatkan.",
+    detail: "Biasanya dipakai dalam acara adat Madura, termasuk pernikahan dan festival kebudayaan lokal."
+},
+{
+    id: 158,
+    title: "Payas Agung / Payas Madya",
+    category: "pakaian",
+    region: "Bali",
+    image: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Payas_Agung_Bali.jpg",
+    description: "Pakaian adat Bali yang sangat mewah dengan mahkota emas (untuk upacara pernikahan/kebesaran).",
+    detail: "Dipakai dalam upacara pernikahan kerajaan dan acara keagamaan, menampilkan kemewahan dan detail hiasan emas."
+},
+{
+    id: 159,
+    title: "Pakaian Adat Timor",
+    category: "pakaian",
+    region: "Nusa Tenggara Timur",
+    image: "https://upload.wikimedia.org/wikipedia/commons/7/7f/Pakaian_Adat_Timor.jpg",
+    description: "Kain tenun ikat khas NTT, Selendang dan Ti'i Langga (topi jerami unik) untuk pria.",
+    detail: "Dipakai dalam upacara adat, tarian tradisional, dan festival budaya NTT."
+},
+{
+    id: 160,
+    title: "King Baba dan King Bibinge",
+    category: "pakaian",
+    region: "Kalimantan Barat",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/27/Pakaian_Adat_Dayak_Kalbar.jpg",
+    description: "Pakaian adat Dayak, terbuat dari kulit kayu, dihiasi manik-manik dan bulu burung.",
+    detail: "Sering dipakai dalam upacara adat, ritual, dan perayaan budaya Dayak di Kalimantan Barat."
+},
+{
+    id: 161,
+    title: "Baju Adat Nyiru",
+    category: "pakaian",
+    region: "Kalimantan Tengah",
+    image: "https://upload.wikimedia.org/wikipedia/commons/4/49/Baju_Adat_Nyiru_Kalteng.jpg",
+    description: "Pakaian adat Dayak Ngaju, menggunakan Rompi dan Penutup Kepala dengan bulu burung enggang.",
+    detail: "Dipakai dalam ritual adat, upacara pernikahan, dan festival kebudayaan Dayak Ngaju."
+},
+{
+    id: 162,
+    title: "Takwo dan Kustin",
+    category: "pakaian",
+    region: "Kalimantan Timur",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/53/Pakaian_Adat_Dayak_Kaltim.jpg",
+    description: "Pakaian adat Dayak Kenyah; Takwo (pria) berupa rompi dan celana pendek, Kustin (wanita) berupa kain sarung.",
+    detail: "Digunakan pada upacara adat, tarian tradisional, dan ritual komunitas Dayak Kenyah."
+},
+{
+    id: 163,
+    title: "Pakaian Adat Tidung",
+    category: "pakaian",
+    region: "Kalimantan Utara",
+    image: "https://upload.wikimedia.org/wikipedia/commons/1/11/Pakaian_Adat_Tidung.jpg",
+    description: "Menggunakan kain Tenun Batik yang khas, dilengkapi perhiasan dari manik-manik.",
+    detail: "Sering dipakai dalam upacara adat, festival budaya, dan acara pernikahan suku Tidung."
+},
+{
+    id: 164,
+    title: "Laku Tepu",
+    category: "pakaian",
+    region: "Sulawesi Utara",
+    image: "https://upload.wikimedia.org/wikipedia/commons/8/81/Pakaian_Adat_Sangihe_Talaud.jpg",
+    description: "Pakaian adat Sangihe Talaud; terbuat dari serat pohon, biasanya berwarna cerah dan dilengkapi Mahkota.",
+    detail: "Dipakai dalam upacara adat, penyambutan tamu, dan festival budaya di Sulawesi Utara."
+},
+{
+    id: 165,
+    title: "Pakaian Adat Suku Kaili (Nggembe)",
+    category: "pakaian",
+    region: "Sulawesi Tengah",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Pakaian_Adat_Kaili_Sulteng.jpg",
+    description: "Baju kurung pendek (wanita) dan Baju Koje (pria), dilengkapi kain sarung tenun.",
+    detail: "Digunakan dalam acara adat, tarian tradisional, dan perayaan lokal Suku Kaili."
+},
+{
+    id: 166,
+    title: "Kain Tenun Buton",
+    category: "pakaian",
+    region: "Sulawesi Tenggara",
+    image: "https://upload.wikimedia.org/wikipedia/commons/3/30/Pakaian_Adat_Buton.jpg",
+    description: "Pakaian adat Buton yang kaya motif tenun, dilengkapi Keris dan Perhiasan Emas.",
+    detail: "Dipakai dalam upacara kerajaan, pernikahan, dan festival budaya Buton."
+},
+{
+    id: 167,
+    title: "Biliu dan Makuta",
+    category: "pakaian",
+    region: "Gorontalo",
+    image: "https://upload.wikimedia.org/wikipedia/commons/0/05/Biliu_dan_Makuta_Gorontalo.jpg",
+    description: "Biliu (wanita) berupa baju kurung sutra, Makuta (pria) berupa jas panjang.",
+    detail: "Sering dipakai dalam pesta adat, pernikahan, dan festival budaya Gorontalo."
+},
+{
+    id: 168,
+    title: "Pakaian Adat Mandar",
+    category: "pakaian",
+    region: "Sulawesi Barat",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/22/Pakaian_Adat_Mandar.jpg",
+    description: "Menggunakan kain sutra dan tenun Mandar, pria memakai Sigara (penutup kepala).",
+    detail: "Dipakai pada acara adat, tarian tradisional, dan festival budaya Mandar."
+},
+{
+    id: 169,
+    title: "Baju Cele",
+    category: "pakaian",
+    region: "Maluku",
+    image: "https://upload.wikimedia.org/wikipedia/commons/7/77/Baju_Cele_Maluku.jpg",
+    description: "Pakaian berwarna cerah (merah/putih) dengan motif garis-garis kotak, dilengkapi Kebaya dan Kain Sarung tenun.",
+    detail: "Digunakan dalam festival, upacara adat, dan pernikahan tradisional Maluku."
+},
+{
+    id: 170,
+    title: "Baju Manteren Lamo",
+    category: "pakaian",
+    region: "Maluku Utara",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Baju_Manteren_Lamo.jpg",
+    description: "Pakaian adat sultan Ternate/Tidore, menggunakan Jubah Panjang dan Topi Kerucut yang khas.",
+    detail: "Dipakai dalam acara kerajaan, upacara adat, dan festival budaya Maluku Utara."
+},
+{
+    id: 171,
+    title: "Koteka dan Rok Rumbai",
+    category: "pakaian",
+    region: "Papua",
+    image: "https://papuaaround.com/wp-content/uploads/2023/03/Screenshot_14.jpg",
+    description: "Koteka (penutup kemaluan pria) dan Rok Rumbai (dari serat atau daun), dilengkapi perhiasan tulang dan bulu.",
+    detail: "Sering digunakan dalam ritual adat, tarian tradisional, dan festival budaya Papua."
+},
+{
+    id: 172,
+    title: "Pakaian Adat Ewer",
+    category: "pakaian",
+    region: "Papua Barat",
+    image: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Pakaian_Adat_Ewer_Papua_Barat.jpg",
+    description: "Pakaian dari kulit kayu dan rumbai-rumbai, dilengkapi Tutup Kepala dari bulu burung kasuari.",
+    detail: "Dipakai dalam upacara adat, tarian tradisional, dan festival budaya suku Ewer Papua Barat."
+},
+{
+    id: 173,
+    title: "Variasi Koteka/Holim dan Sali",
+    category: "pakaian",
+    region: "Papua Pegunungan, Papua Tengah, Papua Selatan, Papua Barat Daya",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/21/Koteka_Holim_Sali_Papua.jpg",
+    description: "Variasi pakaian adat Papua yang terbuat dari alam, bergantung pada subsuku, seperti Yokal (rok rumbai panjang).",
+    detail: "Digunakan dalam ritual adat, upacara perang, pesta panen, dan tarian tradisional di berbagai wilayah Papua."
+},{
+    id: 174,
+    title: "Mie Aceh",
+    category: "makanan",
+    region: "Aceh",
+    image: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Mie_Aceh.jpg",
+    description: "Mi tebal yang dimasak dengan bumbu rempah yang kuat, disajikan dengan daging/seafood dan kuah kari yang kental.",
+    detail: "Biasanya dimakan dengan irisan bawang merah, jeruk nipis, dan acar sebagai pelengkap."
+},
+{
+    id: 175,
+    title: "Saksang",
+    category: "makanan",
+    region: "Sumatera Utara",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/54/Saksang_Batak.jpg",
+    description: "Masakan daging (babi/anjing/kerbau) yang dimasak dengan rempah khas Batak dan darah (optional).",
+    detail: "Saksang biasanya disajikan pada acara adat Batak seperti pernikahan dan upacara penting."
+},
+{
+    id: 176,
+    title: "Gulai Ikan Patin",
+    category: "makanan",
+    region: "Riau",
+    image: "https://upload.wikimedia.org/wikipedia/commons/1/11/Gulai_Ikan_Patin.jpg",
+    description: "Gulai berkuah kuning yang menggunakan santan dan ikan patin, sering disajikan dengan nanas muda.",
+    detail: "Rasa kuahnya gurih dan pedas, biasanya disantap dengan nasi putih hangat."
+},
+{
+    id: 177,
+    title: "Otak-otak Gonggong",
+    category: "makanan",
+    region: "Kepulauan Riau",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Otak_otak_Gonggong_Kepri.jpg",
+    description: "Otak-otak yang terbuat dari gonggong (siput laut khas Kepri), dibakar dan disajikan dengan sambal.",
+    detail: "Disukai sebagai camilan atau lauk pendamping nasi, memiliki aroma khas laut."
+},
+{
+    id: 178,
+    title: "Nasi Gemuk",
+    category: "makanan",
+    region: "Jambi",
+    image: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Nasi_Gemuk_Jambi.jpg",
+    description: "Nasi gurih mirip nasi uduk/lemak, dimasak dengan santan dan lauk pelengkap seperti telur balado dan teri kacang.",
+    detail: "Biasanya disajikan untuk sarapan atau acara khusus di Jambi."
+},
+{
+    id: 179,
+    title: "Pendap",
+    category: "makanan",
+    region: "Bengkulu",
+    image: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Pendap_Bengkulu.jpg",
+    description: "Ikan yang dibumbui dengan bumbu halus pedas, kemudian dibungkus daun talas dan dikukus hingga matang.",
+    detail: "Disajikan sebagai hidangan khas Bumi Raflesia untuk acara adat maupun sehari-hari."
+},
+{
+    id: 180,
+    title: "Seruit",
+    category: "makanan",
+    region: "Lampung",
+    image: "https://upload.wikimedia.org/wikipedia/commons/1/14/Seruit_Lampung.jpg",
+    description: "Ikan yang dibakar/goreng dan dicocol dengan sambal khas Lampung (terasi, tempoyak/mangga), dimakan bersama nasi.",
+    detail: "Hidangan ini terkenal dengan rasa pedas dan segar, cocok untuk pecinta seafood."
+},
+{
+    id: 181,
+    title: "Sate Bandeng",
+    category: "makanan",
+    region: "Banten",
+    image: "https://upload.wikimedia.org/wikipedia/commons/8/87/Sate_Bandeng_Banten.jpg",
+    description: "Sate yang terbuat dari daging ikan bandeng yang dikeluarkan, dihaluskan, dicampur bumbu, dan dimasukkan lagi ke kulitnya, lalu dibakar.",
+    detail: "Biasanya disantap sebagai lauk atau camilan pada acara spesial di Banten."
+},
+{
+    id: 182,
+    title: "Kerak Telor",
+    category: "makanan",
+    region: "DKI Jakarta",
+    image: "https://upload.wikimedia.org/wikipedia/commons/3/36/Kerak_Telor_Betawi.jpg",
+    description: "Makanan khas Betawi, terbuat dari beras ketan, telur bebek/ayam, ebi, dan kelapa sangrai, dimasak di wajan.",
+    detail: "Hidangan ini biasanya dijual di pasar malam atau festival Betawi."
+},
+{
+    id: 183,
+    title: "Empal Gentong",
+    category: "makanan",
+    region: "Jawa Barat",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/51/Empal_Gentong_Cirebon.jpg",
+    description: "Sup daging sapi berkuah santan kental dengan bumbu rempah yang kuat, mirip gulai, khas Cirebon.",
+    detail: "Disajikan panas-panas dengan ketupat atau nasi putih, favorit di Cirebon."
+},{
+    id: 184,
+    title: "Lumpia Semarang",
+    category: "makanan",
+    region: "Jawa Tengah",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Lumpia_Semarang.jpg",
+    description: "Lumpia isi rebung, telur, dan udang/ayam, disajikan dengan saus manis kental dan acar.",
+    detail: "Merupakan camilan dan oleh-oleh khas Semarang, sangat populer di berbagai acara."
+},
+{
+    id: 185,
+    title: "Bakpia Pathok",
+    category: "makanan",
+    region: "DI Yogyakarta",
+    image: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Bakpia_Yogyakarta.jpg",
+    description: "Kue bulat isi kacang hijau manis, merupakan oleh-oleh khas Yogyakarta.",
+    detail: "Bakpia memiliki tekstur lembut dan manis, biasanya dibungkus dalam kemasan kecil untuk oleh-oleh."
+},
+{
+    id: 186,
+    title: "Rujak Cingur",
+    category: "makanan",
+    region: "Jawa Timur",
+    image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/Rujak_Cingur_Surabaya.jpg",
+    description: "Rujak khas Surabaya, berisi irisan cingur (moncong sapi), sayuran, dan lontong, disiram saus petis yang kental.",
+    detail: "Rujak ini memiliki rasa gurih, manis, dan sedikit pedas, cocok disantap sebagai hidangan utama."
+},
+{
+    id: 187,
+    title: "Ayam Taliwang",
+    category: "makanan",
+    region: "Nusa Tenggara Barat (NTB)",
+    image: "https://upload.wikimedia.org/wikipedia/commons/4/43/Ayam_Taliwang.jpg",
+    description: "Ayam panggang khas Lombok yang dibumbui sambal pedas, dimakan bersama plecing kangkung.",
+    detail: "Rasanya pedas dan gurih, sering disajikan pada acara spesial atau restoran khas Lombok."
+},
+{
+    id: 188,
+    title: "Choi Pan / Chai Kwe",
+    category: "makanan",
+    region: "Kalimantan Barat",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/63/Choi_Pan.jpg",
+    description: "Kue kukus Tionghoa-Indonesia yang diisi bangkuang/talas, disajikan dengan taburan bawang putih goreng.",
+    detail: "Cocok sebagai camilan sore hari atau hidangan saat perayaan Imlek."
+},
+{
+    id: 189,
+    title: "Juhu Singkah",
+    category: "makanan",
+    region: "Kalimantan Tengah",
+    image: "https://upload.wikimedia.org/wikipedia/commons/8/8b/Juhu_Singkah.jpg",
+    description: "Sup ikan khas Dayak dengan rempah ringan, menggunakan umbut rotan sebagai bahan utama.",
+    detail: "Biasanya dimasak saat acara adat atau untuk sajian keluarga sehari-hari."
+},
+{
+    id: 190,
+    title: "Nasi Subut",
+    category: "makanan",
+    region: "Kalimantan Utara",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Nasi_Subut_Tidung.jpg",
+    description: "Nasi yang dimasak dengan ubi jalar dan jagung, menjadi makanan pokok suku Tidung.",
+    detail: "Rasa manis alami dari ubi dan jagung membuat hidangan ini unik dan bergizi."
+},
+{
+    id: 191,
+    title: "Tinutuan (Bubur Manado)",
+    category: "makanan",
+    region: "Sulawesi Utara",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/23/Tinutuan_Manado.jpg",
+    description: "Bubur nasi yang dicampur dengan berbagai macam sayuran (labu, kangkung, ubi), dimakan dengan sambal roa.",
+    detail: "Sarapan sehat khas Manado, penuh gizi dan rasa pedas gurih dari sambal roa."
+},
+{
+    id: 192,
+    title: "Lapa-Lapa",
+    category: "makanan",
+    region: "Sulawesi Tenggara",
+    image: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Lapa-Lapa_Wakatobi.jpg",
+    description: "Makanan dari beras ketan yang dimasak dengan santan dan dibungkus daun kelapa, sering dimakan dengan ikan.",
+    detail: "Biasanya disantap saat upacara adat atau sebagai makanan pokok lokal."
 }
-render(data);
-
-// FILTER
-search.oninput = applyFilters;
-filterIsland.onchange = applyFilters;
-
-function applyFilters(){
-  const text = search.value.toLowerCase();
-  const island = filterIsland.value;
-
-  const filtered = data.filter(d=>{
-    const matchText = d.title.toLowerCase().includes(text) ||
-                      d.summary.toLowerCase().includes(text);
-    const matchIsland = island ? d.island === island : true;
-    return matchText && matchIsland;
-  });
-
-  render(filtered);
-}
-
-// MODAL
-const modal = document.getElementById("modal");
-const modalLeft = document.getElementById("modalLeft");
-const modalRight = document.getElementById("modalRight");
-const closeBtn = document.getElementById("closeBtn");
-
-function openModal(item){
-  modalLeft.innerHTML = `
-    <h2>${item.title}</h2>
-    <p><b>${item.region} · ${item.island}</b></p>
-    <p>${item.details}</p>
-  `;
-  modalRight.innerHTML = `
-    <img src="${c:\Users\Acer\Downloads\tari cakalele malukuk.jpeg}" style="width:100%;border-radius:8px;">
-  `;
-  modal.classList.add("visible");
-}
-
-closeBtn.onclick = ()=> modal.classList.remove("visible");
-modal.onclick = e => { if(e.target===modal) modal.classList.remove("visible") };
-
-document.getElementById("year").textContent = new Date().getFullYear();
+        ];
